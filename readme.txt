@@ -11,7 +11,7 @@ Stable tag: 2.3.0
 Confident CAPTCHA&#8482; is a clickable, picture CAPTCHA that stops spam and malicious bots, while remaining very easy for people to solve.
 
 == Description ==
-Confident CAPTCHA&copy; is a clickable, picture CAPTCHA that stops spam and malicious bots, while remaining very easy for people to solve. All your website visitors have to do is click a few specific pictures to prove they are human and not a bot. It takes just a few seconds to solve.
+Confident CAPTCHA&#8482; is a clickable, picture CAPTCHA that stops spam and malicious bots, while remaining very easy for people to solve. All your website visitors have to do is click a few specific pictures to prove they are human and not a bot. It takes just a few seconds to solve.
 
 Stop spam and bots on your website without frustrating your users.  Download Confident CAPTCHA today! 
 
