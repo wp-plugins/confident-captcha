@@ -76,8 +76,7 @@ Please vote for and review this plugin!
 	
 == Screenshots ==
 
-1. Confident CAPTCHA default.
-2. Confident CAPTCHA with logo.
-3. Confident CAPTCHA with logo and billboard. 
-4. Confident CAPTCHA alternate grid size.
-5. Confident CAPTCHA on mobile device.
+1. Confident CAPTCHA with Logo and Billboard
+
+== ATTENTION ==
+To install our CAPTCHA you have to follow instructions in Installation tab. Otherwise the CAPTCHA won't work correctly.
