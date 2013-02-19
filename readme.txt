@@ -1,12 +1,12 @@
 === Confident CAPTCHA ===
 Contributors: ConfidentTechnologies
 Version: 2.3
-
 Tags: anti-spam, anti-bot, security, CAPTCHA Security, CAPTCHA plugin, picture CAPTCHA, image CAPTCHA, Confident CAPTCHA, Simple CAPTCHA, capcha, catcha, captha, reCAPTCHA, login, lost password, registration, spam, comments, forgot password
-
 Requires at least: 3.0
 Tested up to: 3.5.1
 Stable tag: 2.3.0
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Confident CAPTCHA&#8482; is a clickable, picture CAPTCHA that stops spam and malicious bots, while remaining very easy for people to solve.
 
@@ -48,6 +48,15 @@ Stop spam and bots on your website without frustrating your users.  Download Con
 * Confident CAPTCHA for Login form
 * Confident CAPTCHA for Lost password form
 
+= Requirements =
+
+Wordpress >= 3.0, simpleXML and cURL extensions
+
+For more information on this plugin, visit:
+http://www.confidenttechnologies.com/products/confident-captcha 
+
+Please vote for and review this plugin!
+
 == Installation ==
 
 	1. Register for an account at http://www.confidenttechnologies.com/Get_Confident_CAPTCHA to get your API Credentials
@@ -65,15 +74,8 @@ Stop spam and bots on your website without frustrating your users.  Download Con
 
 	Congratulations!  Confident CAPTCHA is now installed on your Wordpress site!
 
-= Requirements =
-
-Wordpress >= 3.0, simpleXML and cURL extensions
-
-For more information on this plugin, visit:
-http://www.confidenttechnologies.com/products/confident-captcha 
-
-Please vote for and review this plugin!
-
+== Upgrade Notice ==
+	
 == Screenshots ==
 
 1. Confident CAPTCHA default.
@@ -81,3 +83,9 @@ Please vote for and review this plugin!
 3. Confident CAPTCHA with logo and billboard. 
 4. Confident CAPTCHA alternate grid size.
 5. Confident CAPTCHA on mobile device.
+
+== Changelog ==
+
+== Frequently Asked Questions ==
+
+== Donations ==
