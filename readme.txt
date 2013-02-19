@@ -73,8 +73,6 @@ Please vote for and review this plugin!
 	Check the appropriate boxes to dictate where you want Confident CAPTCHA to appear on your page. Save your changes. 
 
 	Congratulations!  Confident CAPTCHA is now installed on your Wordpress site!
-
-== Upgrade Notice ==
 	
 == Screenshots ==
 
@@ -83,9 +81,3 @@ Please vote for and review this plugin!
 3. Confident CAPTCHA with logo and billboard. 
 4. Confident CAPTCHA alternate grid size.
 5. Confident CAPTCHA on mobile device.
-
-== Changelog ==
-
-== Frequently Asked Questions ==
-
-== Donations ==
