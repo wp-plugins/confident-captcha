@@ -19,7 +19,7 @@ Stop spam and bots on your website without frustrating your users.  Download Con
 * No typing required
 * International languages: Spanish, French, German, Portuguese and more
 * Audio option for the visually impaired
-* Mobile-optimized version available – works on Apple or Android-based smartphones and tablets
+* Mobile-optimized version available (works on Apple or Android-based smartphones and tablets)
 * Fail-over coverage
 
 ==Configuration Options==
