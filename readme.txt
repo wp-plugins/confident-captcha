@@ -65,14 +65,6 @@ Stop spam and bots on your website without frustrating your users.  Download Con
 
 	Congratulations!  Confident CAPTCHA is now installed on your Wordpress site!
 
-== Screenshots ==
-
-	1. Confident CAPTCHA default.
-	2. Confident CAPTCHA with logo.
-	3. Confident CAPTCHA with logo and billboard. 
-	4. Confident CAPTCHA alternate grid size.
-	5. Confident CAPTCHA on mobile device.
-
 = Requirements =
 
 Wordpress >= 3.0, simpleXML and cURL extensions
@@ -81,3 +73,11 @@ For more information on this plugin, visit:
 http://www.confidenttechnologies.com/products/confident-captcha 
 
 Please vote for and review this plugin!
+
+== Screenshots ==
+
+1. Confident CAPTCHA default.
+2. Confident CAPTCHA with logo.
+3. Confident CAPTCHA with logo and billboard. 
+4. Confident CAPTCHA alternate grid size.
+5. Confident CAPTCHA on mobile device.
