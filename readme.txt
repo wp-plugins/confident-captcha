@@ -8,42 +8,42 @@ Requires at least: 3.0
 Tested up to: 3.5.1
 Stable tag: 2.3.0
 
-Confident CAPTCHA™ is a clickable, picture CAPTCHA that stops spam and malicious bots, while remaining very easy for people to solve. All your website visitors have to do is click a few specific pictures to prove they are human and not a bot. It takes just a few seconds to solve.
+Confident CAPTCHA&copy; is a clickable, picture CAPTCHA that stops spam and malicious bots, while remaining very easy for people to solve. All your website visitors have to do is click a few specific pictures to prove they are human and not a bot. It takes just a few seconds to solve.
 
 Stop spam and bots on your website without frustrating your users.  Download Confident CAPTCHA today! 
 
 
 ==Features==
 
-	• Picture-based CAPTCHA, easy to use
-	• No typing required
-	• International languages: Spanish, French, German, Portuguese and more
-	• Audio option for the visually impaired
-	• Mobile-optimized version available – works on Apple or Android-based smartphones and tablets
-	• Fail-over coverage
+* Picture-based CAPTCHA, easy to use
+* No typing required
+* International languages: Spanish, French, German, Portuguese and more
+* Audio option for the visually impaired
+* Mobile-optimized version available – works on Apple or Android-based smartphones and tablets
+* Fail-over coverage
 
 ==Configuration Options==
 
-	• Dial-up or dial-down security by increasing or decreasing the size of the grid and the number of pictures shown to users
-	• Determine how many pictures users must click
-	• Choose to show or hide letters overlaid on the images, for optional typing input
-	• Brand the CAPTCHA with your logo, images, or billboard ads
-	• Use for login, on comment forms, registration forms or password resets  
+* Dial-up or dial-down security by increasing or decreasing the size of the grid and the number of pictures shown to users
+* Determine how many pictures users must click
+* Choose to show or hide letters overlaid on the images, for optional typing input
+* Brand the CAPTCHA with your logo, images, or billboard ads
+* Use for login, on comment forms, registration forms or password resets  
 
 ==Benefits==
 
-	• Stop spam, fraudulent registrations and other malicious activities from bots
-	• End user frustration
-	• Increase conversion rates
-	• Reduce web page abandonment
-	• Easy to deploy
+* Stop spam, fraudulent registrations and other malicious activities from bots
+* End user frustration
+* Increase conversion rates
+* Reduce web page abandonment
+* Easy to deploy
 
 ==Confident CAPTCHA integration with Wordpress protects the following==
 
-	• Confident CAPTCHA for Registration form 
-	• Confident CAPTCHA for Comment form
-	• Confident CAPTCHA for Login form
-	• Confident CAPTCHA for Lost password form
+* Confident CAPTCHA for Registration form 
+* Confident CAPTCHA for Comment form
+* Confident CAPTCHA for Login form
+* Confident CAPTCHA for Lost password form
 
 ==Installation==
 
