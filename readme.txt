@@ -16,7 +16,7 @@ Confident CAPTCHA&#8482; is a clickable, picture CAPTCHA that stops spam and mal
 Stop spam and bots on your website without frustrating your users.  Download Confident CAPTCHA today! 
 
 
-== Features ==
+= Features =
 
 * Picture-based CAPTCHA, easy to use
 * No typing required
@@ -25,7 +25,7 @@ Stop spam and bots on your website without frustrating your users.  Download Con
 * Mobile-optimized version available (works on Apple or Android-based smartphones and tablets)
 * Fail-over coverage
 
-== Configuration Options ==
+= Configuration Options =
 
 * Dial-up or dial-down security by increasing or decreasing the size of the grid and the number of pictures shown to users
 * Determine how many pictures users must click
@@ -33,7 +33,7 @@ Stop spam and bots on your website without frustrating your users.  Download Con
 * Brand the CAPTCHA with your logo, images, or billboard ads
 * Use for login, on comment forms, registration forms or password resets  
 
-== Benefits ==
+= Benefits =
 
 * Stop spam, fraudulent registrations and other malicious activities from bots
 * End user frustration
@@ -41,7 +41,7 @@ Stop spam and bots on your website without frustrating your users.  Download Con
 * Reduce web page abandonment
 * Easy to deploy
 
-== Confident CAPTCHA integration with Wordpress protects the following ==
+= Confident CAPTCHA integration with Wordpress protects the following =
 
 * Confident CAPTCHA for Registration form 
 * Confident CAPTCHA for Comment form
@@ -73,7 +73,7 @@ Stop spam and bots on your website without frustrating your users.  Download Con
 	4. Confident CAPTCHA alternate grid size.
 	5. Confident CAPTCHA on mobile device.
 
-== Requirements ==
+= Requirements =
 
 Wordpress >= 3.0, simpleXML and cURL extensions
 
