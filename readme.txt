@@ -47,7 +47,7 @@ Stop spam and bots on your website without frustrating your users.  Download Con
 
 == Installation ==
 
-	1. Register for an account at www.ConfidentTechnologies.com to get your API Credentials
+	1. Register for an account at http://www.confidenttechnologies.com/Get_Confident_CAPTCHA to get your API Credentials
 
 	2. Download and activate the Confident CAPTCHA Wordpress plugin from this site
 
