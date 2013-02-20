@@ -77,6 +77,11 @@ Please vote for and review this plugin!
 == Screenshots ==
 
 1. Confident CAPTCHA with Logo and Billboard
+2. Confident CAPTCHA with Logo
+3. Confident CAPTCHA mobile on cell phone
+4. Confident CAPTCHA mobile on tablet
+5. Confident CAPTCHA with Billboard
+
 
 == ATTENTION ==
 To install our CAPTCHA you have to follow instructions in Installation tab. Otherwise the CAPTCHA won't work correctly.
