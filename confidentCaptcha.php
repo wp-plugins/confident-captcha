@@ -141,7 +141,7 @@ if (!class_exists('confidentCaptcha')) {
         }
         function create_error_notice($message, $anchor = '') {
             $options_url = admin_url('options-general.php?page=confident_captcha/confidentCaptcha.php') . $anchor;
-            $error_message = sprintf(__($message . ' <a href="http://www.confidenttechnologies.com/Get_Confident_CAPTCHA" title="WP-Confident CAPTCHA Options">Fix this</a>', 'confidentCaptcha'), $options_url);
+            $error_message = sprintf(__($message . ' <a href="http://www.confidenttechnologies.com/Get_Confident_CAPTCHA" target="_blank" title="WP-Confident CAPTCHA Options">Fix this</a>', 'confidentCaptcha'), $options_url);
             echo '<div class="error"><p><strong>' . $error_message . '</strong></p></div>';
         }
         function missing_keys_notice() {
