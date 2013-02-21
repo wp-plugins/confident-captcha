@@ -140,8 +140,8 @@ if (!class_exists('confidentCaptcha')) {
             return (empty($this->options['site_id']) || empty($this->options['customer_id']) || empty($this->options['api_username']) || empty($this->options['api_password']));
         }
         function create_error_notice($message, $anchor = '') {
-            $options_url = admin_url('options-general.php?page=confident-captcha/confidentCaptcha.php') . $anchor;
-            $error_message = sprintf(__($message . ' <a href="%s" title="WP-Confident CAPTCHA Options">Fix this</a>', 'confidentCaptcha'), $options_url);
+            $options_url = admin_url('options-general.php?page=confident_captcha/confidentCaptcha.php') . $anchor;
+            $error_message = sprintf(__($message . ' <a href="http://www.confidenttechnologies.com/Get_Confident_CAPTCHA" title="WP-Confident CAPTCHA Options">Fix this</a>', 'confidentCaptcha'), $options_url);
             echo '<div class="error"><p><strong>' . $error_message . '</strong></p></div>';
         }
         function missing_keys_notice() {
@@ -506,7 +506,7 @@ JS;
             if ($file == plugin_basename($this->path_to_plugin_directory() . '/wp-confidentCaptcha.php')) {
                $settings_title = __('Settings for this Plugin', 'confidentCaptcha');
                $settings = __('Settings', 'confidentCaptcha');
-               $settings_link = '<a href="options-general.php?page=confident-captcha/confidentCaptcha.php" title="' . $settings_title . '">' . $settings . '</a>';
+               $settings_link = '<a href="options-general.php?page=confident_captcha/confidentCaptcha.php" title="' . $settings_title . '">' . $settings . '</a>';
                array_unshift($links, $settings_link);
             }
             return $links;
