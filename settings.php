@@ -8,7 +8,7 @@
       <?php settings_fields('confidentCaptcha_options_group'); ?>
 
       <h3><?php _e('Authentication', 'confidentCaptcha'); ?></h3>
-      <p><?php _e('These keys are required before you are able to do anything else.', 'confidentCaptcha'); ?> <?php _e('You can get the keys', 'confidentCaptcha'); ?> <a href="http://www.confidenttechnologies.com/Get_Confident_CAPTCHA" target="_blank" title="<?php _e('Get your confidentCaptcha API Keys', 'confidentCaptcha'); ?>"><?php _e('here', 'confidentCaptcha'); ?></a>.</p>
+      <p><?php _e('These keys are required before you are able to do anything else.', 'confidentCaptcha'); ?> <?php _e('You can get the keys', 'confidentCaptcha'); ?> <a href="http://www.confidenttechnologies.com/content/get-confident-captcha-today" target="_blank" title="<?php _e('Get your confidentCaptcha API Keys', 'confidentCaptcha'); ?>"><?php _e('here', 'confidentCaptcha'); ?></a>.</p>
       
       <table class="form-table">
          <tr valign="top">
