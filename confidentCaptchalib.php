@@ -1,8 +1,8 @@
 <?php
 
-define("confidentCaptcha_API_SERVER", "http://75.101.173.237:5080/captcha");
-define("confidentCaptcha_API_SECURE_SERVER", "https://75.101.173.237:5080/captcha");
-define("confidentCaptcha_VERIFY_SERVER", "https://75.101.173.237:5080/captcha/");
+define("confidentCaptcha_API_SERVER", "http://captcha.confidenttechnologies.com/captcha");
+define("confidentCaptcha_API_SECURE_SERVER", "https://captcha.confidenttechnologies.com/captcha");
+define("confidentCaptcha_VERIFY_SERVER", "https://captcha.confidenttechnologies.com/captcha/");
 
 function _confidentCaptcha_http_post($host, $path, $data, $port = 80) {
 	   $req = encode_POST_data($data);
