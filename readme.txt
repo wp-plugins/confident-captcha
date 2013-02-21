@@ -62,7 +62,7 @@ Please vote for and review this plugin!
 
 	2. Download and activate the Confident CAPTCHA Wordpress plugin from this site
 
-	3. Go to the Confident CAPTCHA settings (under "Settings"), make sure you have the API credentials you obtained from www.ConfidentTechnologies.com 
+	3. Go to the Confident CAPTCHA settings (under "Settings"), make sure you have the API credentials you obtained from [Confident Technologies](https://login.confidenttechnologies.com/accounts/signin/?#).
 
 		* Customer ID	
 		* Site ID
