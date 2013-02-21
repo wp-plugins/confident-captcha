@@ -12,15 +12,15 @@
       
       <table class="form-table">
          <tr valign="top">
-            <th scope="row"><?php _e('Site ID', 'confidentCaptcha'); ?></th>
-            <td>
-               <input type="text" name="confidentCaptcha_options[site_id]" size="40" value="<?php echo $this->options['site_id']; ?>" />
-            </td>
-         </tr>
-         <tr valign="top">
             <th scope="row"><?php _e('Customer ID', 'confidentCaptcha'); ?></th>
             <td>
                <input type="text" name="confidentCaptcha_options[customer_id]" size="40" value="<?php echo $this->options['customer_id']; ?>" />
+            </td>
+         </tr>
+         <tr valign="top">
+            <th scope="row"><?php _e('Site ID', 'confidentCaptcha'); ?></th>
+            <td>
+               <input type="text" name="confidentCaptcha_options[site_id]" size="40" value="<?php echo $this->options['site_id']; ?>" />
             </td>
          </tr>
          <tr valign="top">
@@ -93,7 +93,7 @@
                <input type="checkbox" id ="confidentCaptcha_options[show_in_lost_password]" name="confidentCaptcha_options[show_in_lost_password]" value="1" <?php checked('1', $this->options['show_in_lost_password']); ?> />
                <label for="confidentCaptcha_options[show_in_lost_password]"><?php _e('Enable for Lost Password', 'confidentCaptcha'); ?></label>
             </td>
-         </tr>		 
+         </tr>	 
       </table>
       
       <h3><?php _e('General Options', 'confidentCaptcha'); ?></h3>
