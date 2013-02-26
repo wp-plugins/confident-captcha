@@ -58,8 +58,6 @@ Please vote for and review this plugin!
 
 == Installation ==
 
-    Click [here](http://www.youtube.com/watch?v=OBgJx4gOKuY&feature=share&list=UUtIikrcV60CT43GzTqEr2Bw) to see a video showing how to install Confident CAPTCHA on Wordpress in only 5 minutes!
-
 	1. Register for an account at [http://www.confidenttechnologies.com/content/get-confident-captcha-today](http://www.confidenttechnologies.com/content/get-confident-captcha-today) to get your API Credentials
 
 	2. Download and activate the Confident CAPTCHA Wordpress plugin from this site
@@ -74,6 +72,8 @@ Please vote for and review this plugin!
 	Check the appropriate boxes to dictate where you want Confident CAPTCHA to appear on your page. Save your changes. 
 
 	Congratulations!  Confident CAPTCHA is now installed on your Wordpress site!
+	
+    Click [here](http://www.youtube.com/watch?v=OBgJx4gOKuY&feature=share&list=UUtIikrcV60CT43GzTqEr2Bw) to see a video showing how to install Confident CAPTCHA on Wordpress in only 5 minutes!
 	
 == Screenshots ==
 
