@@ -550,8 +550,8 @@ JS;
         }
         function add_settings_page() {
             if ($this->environment == Environment::WordPressMU && $this->is_authority())
-                add_submenu_page('wpmu-admin.php', 'wp-confidentCaptcha', 'wp-confidentCaptcha', 'manage_options', __FILE__, array(&$this, 'show_settings_page'));
-            add_options_page('wp-confidentCaptcha', 'wp-confidentCaptcha', 'manage_options', __FILE__, array(&$this, 'show_settings_page'));
+                add_submenu_page('wpmu-admin.php', 'Confident CAPTCHA', 'Confident CAPTCHA', 'manage_options', __FILE__, array(&$this, 'show_settings_page'));
+            add_options_page('Confident CAPTCHA', 'Confident CAPTCHA', 'manage_options', __FILE__, array(&$this, 'show_settings_page'));
         }
         function show_settings_page() {
             include("settings.php");
