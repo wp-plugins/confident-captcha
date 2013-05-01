@@ -4,7 +4,7 @@ Version: 2.3
 Tags: anti-spam, anti-bot, security, CAPTCHA Security, CAPTCHA plugin, picture CAPTCHA, image CAPTCHA, Confident CAPTCHA, Simple CAPTCHA, capcha, catcha, captha, reCAPTCHA, login, lost password, registration, spam, comments, forgot password
 Requires at least: 3.0
 Tested up to: 3.5.1
-Stable tag: 2.3.0
+Stable tag: 2.3.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
