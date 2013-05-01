@@ -24,6 +24,7 @@ Stop spam and bots on your website without frustrating your users.  Download Con
 * Audio option for the visually impaired
 * Mobile-optimized version available (works on Apple or Android-based smartphones and tablets)
 * Fail-over coverage
+* Optional: Earn revenue by allowing ads in the CAPTCHA on your site. Learn more about monetizing your CAPTCHA here: http://confidenttechnologies.com/products/captcha-advertising
 
 = Configuration Options =
 
