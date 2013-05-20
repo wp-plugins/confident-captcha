@@ -114,8 +114,8 @@ if (!class_exists('confidentCaptcha')) {
                $option_defaults['comments_tab_index'] = 5;
                $option_defaults['registration_tab_index'] = 30;
 			   $option_defaults['captcha_width'] = 3;
-			   $option_defaults['captcha_height'] = 3;
-			   $option_defaults['captcha_length'] = 4;
+			   $option_defaults['captcha_height'] = 2;
+			   $option_defaults['captcha_length'] = 3;
 			   $option_defaults['captcha_logo'] = '';
 			   $option_defaults['captcha_billboard'] = '';
 			   $option_defaults['captcha_description'] = '';
