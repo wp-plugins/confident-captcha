@@ -133,7 +133,7 @@ function confidentCaptcha_check_answer ($data)
         return $confidentCaptcha_response;
 }
 function confidentCaptcha_get_signup_url ($domain = null, $appname = null) {
-	return "https://www.confidenttechnologies.com";
+	return "http://www.confidenttechnologies.com";
 }
 function _confidentCaptcha_aes_pad($val) {
 	$block_size = 16;
