@@ -282,7 +282,7 @@ if (!class_exists('confidentCaptcha')) {
                 'billboard_name'=>$this->options['captcha_billboard'],
                 'noise_level'=>$this->options['noise_level']
 			);
-			$desc_msg = $this->options['captcha_description'] != '' ? '<p>'.$this->options['captcha_description'] . '</p>' : '';
+			$desc_msg = $this->options['captcha_description'] != '' ? '<p>'.filter_var($this->options['captcha_description'], FILTER_SANITIZE_STRING) . '</p>' : '';
             return $desc_msg . confidentCaptcha_get_html($options, $confidentCaptcha_error, $use_ssl, $this->options['xhtml_compliance']) . '<br/>';
         }
 
