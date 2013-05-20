@@ -25,11 +25,6 @@ if (!class_exists('confidentCaptcha')) {
                 else
                     add_action('register_form', array(&$this, 'show_confidentCaptcha_in_registration'));
             }
-		    if (function_exists('wpcf7_add_shortcode')) {
-			    wpcf7_add_shortcode('confidentCaptcha', 'confidentCaptcha_shortcode');
-				add_filter( 'wpcf7_validate_confidentCaptcha', 'validate_confidentCaptcha_response', 10, 1);
-				add_action('admin_init', 'confidentCaptcha_tag_generator');
-			}
 			if($this->options['show_in_lost_password'])
 			    add_action('lostpassword_form', array(&$this, 'show_confidentCaptcha_in_registration'));
 			if($this->options['show_in_login_page'])
@@ -76,7 +71,6 @@ if (!class_exists('confidentCaptcha')) {
                $option_defaults['api_password'] = $old_options['apipassword'];
                $option_defaults['show_in_comments'] = $old_options['cc_comments'];
                $option_defaults['show_in_registration'] = $old_options['cc_registration'];
-			   $option_defaults['confidentCaptcha_on_cf7'] = $old_options['cc_on_cf7'];
                $option_defaults['bypass_for_registered_users'] = ($old_options['cc_bypass'] == "on") ? 1 : 0;
                $option_defaults['minimum_bypass_level'] = $old_options['cc_bypasslevel'];
                if ($option_defaults['minimum_bypass_level'] == "level_10") {
@@ -105,7 +99,6 @@ if (!class_exists('confidentCaptcha')) {
                $option_defaults['api_password'] = '';
                $option_defaults['show_in_comments'] = 1;
                $option_defaults['show_in_registration'] = 1;
-			   $option_defaults['confidentCaptcha_on_cf7'] = 1;
 			   $option_defaults['show_in_lost_password'] = 1;
 			   $option_defaults['show_in_login_page'] = 0;
                $option_defaults['bypass_for_registered_users'] = 1;
@@ -140,30 +133,8 @@ if (!class_exists('confidentCaptcha')) {
 		function register_js() {
 		    wp_enqueue_script('jquery');
         }
-        function confidentCaptcha_tag_generator() {
-		   wpcf7_add_tag_generator('confidentCaptcha', 'Confident CAPTCHA', 'confidentCaptcha-tag-pane', 'confidentCaptcha_tag_pane');
-		}
-		function confidentCaptcha_tag_pane() {
-		   ?>
-		   <div id="confidentCaptcha-tag-pane" class="hidden">
-		      <form action="">
-			     <table>
-				    <tr>
-					   <td><?php _e('Name', 'confidentCaptcha'); ?><br /><input type="text" name="name" class="tg-name oneline" /></td>
-					   <td></td>
-					</tr>
-			     </table>
-			  <div class="tg-tag">
-			     <?php _e('Copy this code and paste it into the form on the left.', 'confidentCaptcha' ); ?>
-				 <br/>
-				 <input type="text" name="confidentCaptcha" class="tag" readonly="readonly" onfocus="this.select()" />
-			  </div>
-		      </form>
-		   </div>
-		   <?php
-		}
         function confidentCaptcha_enabled() {
-            return ($this->options['show_in_comments'] || $this->options['show_in_registration'] || $this->options['show_in_login_page'] || $this->options['show_in_lost_password'] || $this->options['confidentCaptcha_on_cf7'] );
+            return ($this->options['show_in_comments'] || $this->options['show_in_registration'] || $this->options['show_in_login_page'] || $this->options['show_in_lost_password'] );
         }
         function keys_missing() {
             return (empty($this->options['site_id']) || empty($this->options['customer_id']) || empty($this->options['api_username']) || empty($this->options['api_password']));
@@ -194,7 +165,7 @@ if (!class_exists('confidentCaptcha')) {
 			$validated['show_in_login_page'] = ($input['show_in_login_page'] == 0 ? 0 : 1 );
             $validated['bypass_for_registered_users'] = ($input['bypass_for_registered_users'] == 1 ? 1: 0);
             $capabilities = array ('read', 'edit_posts', 'publish_posts', 'moderate_comments', 'activate_plugins');
-			$codeColors = array ('White', 'Red', 'Green','Maroon','Grey');
+			$codeColors = array ('White', 'Red', 'Orange', 'Yellow', 'Green', 'Teal', 'Blue', 'Indigo', 'Violet', 'Gray');
 			$noiseLvls = array ('.10', '.20', '.30', '.40', '.50', '.60', '.70', '.80', '.90');
 			$displayStyles = array ('lightbox', 'flyout');
             $confidentCaptcha_languages = array ('en', 'nl', 'fr', 'de', 'pt', 'ru', 'es', 'tr');
@@ -204,7 +175,6 @@ if (!class_exists('confidentCaptcha')) {
 			$validated['display_style'] = $this->validate_dropdown($displayStyles, 'display_style', $input['display_style']);
             $validated['comments_tab_index'] = $input['comments_tab_index'] ? $input["comments_tab_index"] : 5;
             $validated['show_in_registration'] = ($input['show_in_registration'] == 1 ? 1 : 0);
-			$validated['confidentCaptcha_on_cf7'] = ($input['confidentCaptcha_on_cf7'] == 1 ? 1 : 0);
             $validated['registration_tab_index'] = $input['registration_tab_index'] ? $input["registration_tab_index"] : 30;
 			$validated['captcha_width'] = $input['captcha_width'] ? $input["captcha_width"] : 3;
             $validated['captcha_height'] = $input['captcha_height'] ? $input["captcha_height"] : 3;
@@ -215,14 +185,6 @@ if (!class_exists('confidentCaptcha')) {
             $validated['incorrect_response_error'] = $input['incorrect_response_error'];
             return $validated;
         }
-		function confidentCaptcha_shortcode( $atts ) {
-		   $escaped_error = htmlentities($_GET['rerror'], ENT_QUOTES);
-		   if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == "on")
-		      $use_ssl = true;
-		   else
-		      $use_ssl = false;
-           return $this->get_confidentCaptcha_html( $escaped_error, $use_ssl );
-		}
         function show_confidentCaptcha_in_registration($errors) {
 		    echo '<script src="http://code.jquery.com/jquery-latest.min.js"
         type="text/javascript"></script>';
@@ -579,8 +541,13 @@ JS;
             $codeColor = array (
                 __('White', 'confidentCaptcha') => 'White',
                 __('Red', 'confidentCaptcha') => 'Red',
+                __('Orange', 'confidentCaptcha') => 'Orange',
+                __('Yellow', 'confidentCaptcha') => 'Yellow',				
                 __('Green', 'confidentCaptcha') => 'Green',
-                __('Maroon', 'confidentCaptcha') => 'Maroon',
+                __('Teal', 'confidentCaptcha') => 'Teal',
+                __('Blue', 'confidentCaptcha') => 'Blue',
+                __('Indigo', 'confidentCaptcha') => 'Indigo',
+                __('Violet', 'confidentCaptcha') => 'Violet',				
                 __('Grey', 'confidentCaptcha') => 'Grey'
             );
             
