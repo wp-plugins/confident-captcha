@@ -76,6 +76,7 @@ if (!class_exists('confidentCaptcha')) {
                if ($option_defaults['minimum_bypass_level'] == "level_10") {
                   $option_defaults['minimum_bypass_level'] = "activate_plugins";
                }
+               $option_defaults['show_letters'] = 0;
 			   $option_defaults['image_code_color'] = $old_options['cc_code_color'];
 			   $option_defaults['noise_level'] = $old_options['cc_noise_level'];
 			   $option_defaults['display_style'] = $old_options['cc_display_style'];
@@ -83,11 +84,12 @@ if (!class_exists('confidentCaptcha')) {
                $option_defaults['xhtml_compliance'] = $old_options['cc_xhtml'];
                $option_defaults['comments_tab_index'] = $old_options['cc_tabindex'];
                $option_defaults['registration_tab_index'] = 30;
-			   $option_defaults['captcha_length'] = 4;
+			   $option_defaults['captcha_length'] = 3;
 			   $option_defaults['captcha_width'] = 3;
-			   $option_defaults['captcha_height'] = 3;
+			   $option_defaults['captcha_height'] = 2;
 			   $option_defaults['captcha_logo'] = '';
 			   $option_defaults['captcha_billboard'] = '';
+               $option_defaults['captcha_description'] = '';
                $option_defaults['no_response_error'] = $old_options['error_blank'];
                $option_defaults['incorrect_response_error'] = $old_options['error_incorrect'];
             }
@@ -103,6 +105,7 @@ if (!class_exists('confidentCaptcha')) {
 			   $option_defaults['show_in_login_page'] = 0;
                $option_defaults['bypass_for_registered_users'] = 1;
                $option_defaults['minimum_bypass_level'] = 'read';
+			   $option_defaults['show_letters'] = 0;
 			   $option_defaults['image_code_color'] = 'White';
 			   $option_defaults['noise_level'] = '.10';
 			   $option_defaults['display_style'] = 'flyout';
@@ -115,6 +118,7 @@ if (!class_exists('confidentCaptcha')) {
 			   $option_defaults['captcha_length'] = 4;
 			   $option_defaults['captcha_logo'] = '';
 			   $option_defaults['captcha_billboard'] = '';
+			   $option_defaults['captcha_description'] = '';
                $option_defaults['no_response_error'] = '<strong>ERROR</strong>: Please solve the Confident CAPTCHA.';
                $option_defaults['incorrect_response_error'] = '<strong>ERROR</strong>: That Confident CAPTCHA response was incorrect.';
             }
@@ -170,6 +174,7 @@ if (!class_exists('confidentCaptcha')) {
 			$displayStyles = array ('lightbox', 'flyout');
             $confidentCaptcha_languages = array ('en', 'nl', 'fr', 'de', 'pt', 'ru', 'es', 'tr');
             $validated['minimum_bypass_level'] = $this->validate_dropdown($capabilities, 'minimum_bypass_level', $input['minimum_bypass_level']);
+			$validated['show_letters'] = ($input['show_letters'] == 0 ? 0 : 1 );
 			$validated['image_code_color'] = $this->validate_dropdown($codeColors, 'image_code_color', $input['image_code_color']);
 			$validated['noise_level'] = $this->validate_dropdown($noiseLvls, 'noise_level', $input['noise_level']);
 			$validated['display_style'] = $this->validate_dropdown($displayStyles, 'display_style', $input['display_style']);
@@ -181,6 +186,7 @@ if (!class_exists('confidentCaptcha')) {
             $validated['captcha_length'] = $input['captcha_length'] ? $input["captcha_length"] : 4;
 			$validated['captcha_logo'] = $input['captcha_logo'] ? $input["captcha_logo"] : '';
 			$validated['captcha_billboard'] = $input['captcha_billboard'] ? $input["captcha_billboard"] : '';			
+			$validated['captcha_description'] = $input['captcha_description'] = $input['captcha_description'];
             $validated['no_response_error'] = $input['no_response_error'];
             $validated['incorrect_response_error'] = $input['incorrect_response_error'];
             return $validated;
@@ -254,6 +260,7 @@ if (!class_exists('confidentCaptcha')) {
                 return md5(confidentCaptcha_WP_HASH_SALT . $this->options['site_id'] . $id);
         }
         function get_confidentCaptcha_html($confidentCaptcha_error, $use_ssl=false) {
+            $show_letters_req = $this->options['show_letters'] == 1 ? 'True' : 'False';  
 		    $pageURL = $_SERVER['HTTPS'] == 'on' ? 'https://' : 'http://';
             $pageURL .= $_SERVER['SERVER_PORT'] != '80' ? $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"].$_SERVER["REQUEST_URI"] : $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
 		    $options = array ( 
@@ -268,13 +275,15 @@ if (!class_exists('confidentCaptcha')) {
                 'width'=>$this->options['captcha_width'],
                 'height'=>$this->options['captcha_height'],
                 'captcha_length'=>$this->options['captcha_length'],
+				'show_letters'=>$show_letters_req,
 				'image_code_color'=>$this->options['image_code_color'],
                 'display_style'=>$this->options['display_style'],
                 'logo_name'=>$this->options['captcha_logo'],
                 'billboard_name'=>$this->options['captcha_billboard'],
                 'noise_level'=>$this->options['noise_level']
 			);
-            return confidentCaptcha_get_html($options, $confidentCaptcha_error, $use_ssl, $this->options['xhtml_compliance']);
+			$desc_msg = $this->options['captcha_description'] != '' ? '<p>'.$this->options['captcha_description'] . '</p>' : '';
+            return $desc_msg . confidentCaptcha_get_html($options, $confidentCaptcha_error, $use_ssl, $this->options['xhtml_compliance']) . '<br/>';
         }
 
         function show_confidentCaptcha_in_comments() {
