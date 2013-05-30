@@ -13,6 +13,12 @@ if (!class_exists('confidentCaptcha')) {
             $this->require_library();
             $this->register_actions();
             $this->register_filters();
+            if ( $this->options['confidentcaptcha_on_cf7'] == 'true') {
+			   if( function_exists('wpcf7_add_shortcode')) {
+			      wpcf7_add_shortcode('confidentcaptcha', 'confidentcaptcha_shortcode', true );
+				  add_filter( 'wpcf7_validate_confidentcaptcha', array(&$this, 'process_custom_forms'), 10, 2);
+		       }
+            }			   
         }
         function register_actions() {
             add_action('wp_head', array(&$this, 'register_stylesheets')); 
@@ -103,6 +109,7 @@ if (!class_exists('confidentCaptcha')) {
                $option_defaults['show_in_registration'] = 1;
 			   $option_defaults['show_in_lost_password'] = 1;
 			   $option_defaults['show_in_login_page'] = 0;
+			   $option_defaults['confidentcaptcha_on_cf7'] = 'false';
                $option_defaults['bypass_for_registered_users'] = 1;
                $option_defaults['minimum_bypass_level'] = 'read';
 			   $option_defaults['show_letters'] = 0;
@@ -138,7 +145,7 @@ if (!class_exists('confidentCaptcha')) {
 		    wp_enqueue_script('jquery');
         }
         function confidentCaptcha_enabled() {
-            return ($this->options['show_in_comments'] || $this->options['show_in_registration'] || $this->options['show_in_login_page'] || $this->options['show_in_lost_password'] );
+            return ($this->options['show_in_comments'] || $this->options['show_in_registration'] || $this->options['show_in_login_page'] || $this->options['show_in_lost_password'] || ($this->options['confidentcaptcha_on_cf7'] == 'true') );
         }
         function keys_missing() {
             return (empty($this->options['site_id']) || empty($this->options['customer_id']) || empty($this->options['api_username']) || empty($this->options['api_password']));
@@ -167,6 +174,7 @@ if (!class_exists('confidentCaptcha')) {
             $validated['show_in_comments'] = ($input['show_in_comments'] == 1 ? 1 : 0);
 			$validated['show_in_lost_password'] = ($input['show_in_lost_password'] == 1 ? 1 : 0);
 			$validated['show_in_login_page'] = ($input['show_in_login_page'] == 0 ? 0 : 1 );
+			$validated['confidentcaptcha_on_cf7'] = ($input['confidentcaptcha_on_cf7'] == 'false' ? 'false' : 'true' );
             $validated['bypass_for_registered_users'] = ($input['bypass_for_registered_users'] == 1 ? 1: 0);
             $capabilities = array ('read', 'edit_posts', 'publish_posts', 'moderate_comments', 'activate_plugins');
 			$codeColors = array ('White', 'Red', 'Orange', 'Yellow', 'Green', 'Teal', 'Blue', 'Indigo', 'Violet', 'Gray');
@@ -190,6 +198,44 @@ if (!class_exists('confidentCaptcha')) {
             $validated['no_response_error'] = $input['no_response_error'];
             $validated['incorrect_response_error'] = $input['incorrect_response_error'];
             return $validated;
+        }
+		function process_custom_forms ($errors, $tag)
+		{
+            if (empty($_POST['confidentcaptcha_code']) || $_POST['confidentcaptcha_code'] == '') {
+                $errors->add('blank_captcha', $this->options['no_response_error']);
+                return $errors;
+            }
+            $validationData = array (
+                'api_username'=>$this->options['api_username'],
+                'api_password'=>$this->options['api_password'],
+                'customer_id'=>$this->options['customer_id'],
+                'site_id'=>$this->options['site_id'],
+                'library_version'=>'20120625_WordPress_2.3',
+				'click_coordinates'=>$_POST['confidentcaptcha_click_coordinates'],
+				'code'=>$_POST['confidentcaptcha_code'],
+				'confidentCaptchaID'=>$_POST['confidentcaptcha_captcha_id']
+            );
+            $response = confidentCaptcha_check_answer($validationData);
+            if (!$response->is_valid) {
+			   if( $tag != '' ) { // if using Contact Form 7
+			      $errors['valid'] = false;
+				  $errors['reason']['confidentcaptcha'] = __('The solution of the task you submitted was incorrect.  Please read the instructions and try again.', 'confidentCaptcha');
+               } else {
+			      $errors->add('captcha_wrong', $this->options['incorrect_response_error']);
+               }
+			}
+            return $errors;
+        }
+		function confidentcaptcha_shortcode($atts) {
+		    $return_html = '<script src="http://code.jquery.com/jquery-latest.min.js"
+        type="text/javascript"></script>';
+            if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == "on")
+                $use_ssl = true;
+            else
+                $use_ssl = false;
+            $escaped_error = htmlentities($_GET['rerror'], ENT_QUOTES);
+            $return_html .= $this->get_confidentCaptcha_html($escaped_error, $use_ssl);
+            return $return_html;
         }
         function show_confidentCaptcha_in_registration($errors) {
 		    echo '<script src="http://code.jquery.com/jquery-latest.min.js"
@@ -260,7 +306,8 @@ if (!class_exists('confidentCaptcha')) {
                 return md5(confidentCaptcha_WP_HASH_SALT . $this->options['site_id'] . $id);
         }
         function get_confidentCaptcha_html($confidentCaptcha_error, $use_ssl=false) {
-            $show_letters_req = $this->options['show_letters'] == 1 ? 'True' : 'False';  
+            $show_letters_req = $this->options['show_letters'] == 1 ? 'True' : 'False';
+            $lang = (!empty($_SERVER['HTTP_ACCEPT_LANGUAGE'])) ? $_SERVER['HTTP_ACCEPT_LANGUAGE'] : 'en';			
 		    $pageURL = $_SERVER['HTTPS'] == 'on' ? 'https://' : 'http://';
             $pageURL .= $_SERVER['SERVER_PORT'] != '80' ? $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"].$_SERVER["REQUEST_URI"] : $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
 		    $options = array ( 
@@ -269,7 +316,7 @@ if (!class_exists('confidentCaptcha')) {
                 'customer_id'=>$this->options['customer_id'],
                 'site_id'=>$this->options['site_id'],
                 'library_version'=>'20120625_WordPress_2.3',
-                'language'=>'en',
+                'language'=>$lang,
                 'local_server_name'=>$pageURL,
                 'local_server_address'=>'127.0.0.1',
                 'width'=>$this->options['captcha_width'],
