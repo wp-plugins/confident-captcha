@@ -180,7 +180,7 @@ if (!class_exists('confidentCaptcha')) {
             $validated['bypass_for_registered_users'] = ($input['bypass_for_registered_users'] == 1 ? 1: 0);
             $capabilities = array ('read', 'edit_posts', 'publish_posts', 'moderate_comments', 'activate_plugins');
 			$codeColors = array ('White', 'Red', 'Orange', 'Yellow', 'Green', 'Teal', 'Blue', 'Indigo', 'Violet', 'Gray');
-			$captchaColors = array ('Pearl', 'Black', 'Tangerine', 'Pink', 'Purple', 'Orange', 'Yellow', 'Blue', 'Green');
+			$captchaColors = array ('Pearl', 'Black', 'Tangerine', 'Pink', 'Purple', 'Orange', 'Yellow', 'Aqua', 'Green','Red');
 			$noiseLvls = array ('.10', '.20', '.30', '.40', '.50', '.60', '.70', '.80', '.90');
 			$displayStyles = array ('lightbox', 'flyout');
             $confidentCaptcha_languages = array ('en', 'nl', 'fr', 'de', 'pt', 'ru', 'es', 'tr');
@@ -607,8 +607,9 @@ JS;
 			   __('Purple', 'confidentCaptcha') => 'Purple',
 			   __('Orange', 'confidentCaptcha') => 'Orange',
 			   __('Yellow', 'confidentCaptcha') => 'Yellow',
-			   __('Blue', 'confidentCaptcha') => 'Blue',
-			   __('Green', 'confidentCaptcha') => 'Green'
+			   __('Blue', 'confidentCaptcha') => 'Aqua',
+			   __('Green', 'confidentCaptcha') => 'Green',
+			   __('Red', 'confidentCaptcha') => 'Red'
 			);
 			$this->build_dropdown('confidentCaptcha_options[captcha_color]', $captchaColor, $this->options['captcha_color']);
         }
