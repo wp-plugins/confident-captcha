@@ -607,7 +607,7 @@ JS;
 			   __('Purple', 'confidentCaptcha') => 'Purple',
 			   __('Orange', 'confidentCaptcha') => 'Orange',
 			   __('Yellow', 'confidentCaptcha') => 'Yellow',
-			   __('Blue', 'confidentCaptcha') => 'Aqua',
+			   __('Aqua', 'confidentCaptcha') => 'Aqua',
 			   __('Green', 'confidentCaptcha') => 'Green',
 			   __('Red', 'confidentCaptcha') => 'Red'
 			);
