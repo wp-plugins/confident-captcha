@@ -180,12 +180,13 @@ if (!class_exists('confidentCaptcha')) {
             $validated['bypass_for_registered_users'] = ($input['bypass_for_registered_users'] == 1 ? 1: 0);
             $capabilities = array ('read', 'edit_posts', 'publish_posts', 'moderate_comments', 'activate_plugins');
 			$codeColors = array ('White', 'Red', 'Orange', 'Yellow', 'Green', 'Teal', 'Blue', 'Indigo', 'Violet', 'Gray');
+			$captchaColors = array ('Pearl', 'Black', 'Tangerine', 'Pink', 'Purple', 'Orange', 'Yellow', 'Blue', 'Green');
 			$noiseLvls = array ('.10', '.20', '.30', '.40', '.50', '.60', '.70', '.80', '.90');
 			$displayStyles = array ('lightbox', 'flyout');
             $confidentCaptcha_languages = array ('en', 'nl', 'fr', 'de', 'pt', 'ru', 'es', 'tr');
             $validated['minimum_bypass_level'] = $this->validate_dropdown($capabilities, 'minimum_bypass_level', $input['minimum_bypass_level']);
 			$validated['show_letters'] = ($input['show_letters'] == 0 ? 0 : 1 );
-			$validated['captcha_color'] = $this->validate_dropdown($captchaColor, 'captcha_color', $input['captcha_color']);
+			$validated['captcha_color'] = $this->validate_dropdown($captchaColors, 'captcha_color', $input['captcha_color']);
 			$validated['image_code_color'] = $this->validate_dropdown($codeColors, 'image_code_color', $input['image_code_color']);
 			$validated['noise_level'] = $this->validate_dropdown($noiseLvls, 'noise_level', $input['noise_level']);
 			$validated['display_style'] = $this->validate_dropdown($displayStyles, 'display_style', $input['display_style']);
