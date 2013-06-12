@@ -248,7 +248,7 @@ if (!class_exists('confidentCaptcha')) {
             $validated['max_tries'] = $input['max_tries'] ? $input["max_tries"] : '3';
 			$validated['captcha_logo'] = $input['captcha_logo'] ? $input["captcha_logo"] : '';
 			$validated['captcha_billboard'] = $input['captcha_billboard'] ? $input["captcha_billboard"] : '';			
-			$validated['captcha_description'] = $input['captcha_description'] = $input['captcha_description'];
+			$validated['captcha_description'] = $input['captcha_description'];
             $validated['no_response_error'] = $input['no_response_error'];
             $validated['incorrect_response_error'] = $input['incorrect_response_error'];
             return $validated;
@@ -325,13 +325,13 @@ if (!class_exists('confidentCaptcha')) {
                 return md5(confidentCaptcha_WP_HASH_SALT . $this->options['site_id'] . $id);
         }
         function get_confidentCaptcha_html($confidentCaptcha_error, $use_ssl=false) {
-		    if($this->options['ajax_verify'] == "TRUE"){
+			$desc_msg = $this->options['captcha_description'] != '' ? '<p>'.filter_var($this->options['captcha_description'], FILTER_SANITIZE_STRING) . '</p>' : '';
+            if($this->options['ajax_verify'] == "TRUE"){
 
                 $client = $this->getClient();
                 $response = $client->createBlock();
-                return $client->createCaptcha($response->getBlockId());
+                return $desc_msg . $client->createCaptcha($response->getBlockId());
             }
-			$desc_msg = $this->options['captcha_description'] != '' ? '<p>'.filter_var($this->options['captcha_description'], FILTER_SANITIZE_STRING) . '</p>' : '';
             return $desc_msg . $this->getClient()->createCaptcha();
         }
 
