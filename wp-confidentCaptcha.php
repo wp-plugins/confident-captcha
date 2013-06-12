@@ -1,9 +1,9 @@
 <?php
 /*
 Plugin Name: Confident CAPTCHA
-Plugin URI: http://www.confidenttechnologies.com
+Plugin URI: https://www.confidenttechnologies.com
 Description: Integrates Confident CAPTCHA anti-spam solutions with wordpress
-Version: 2.3
+Version: 2.5
 Author: Confident Technologies Inc.
 Email: support@confidenttechnologies.com
 Author URI: http://www.confidenttechnologies.com/contact
