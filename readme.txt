@@ -24,7 +24,6 @@ Stop spam and bots on your website without frustrating your users.  Download Con
 * Audio option for the visually impaired
 * Mobile-optimized version available (works on Apple or Android-based smartphones and tablets)
 * Fail-over coverage
-* Optional: Earn revenue by allowing ads in the CAPTCHA on your site. Learn more about monetizing your CAPTCHA here: http://confidenttechnologies.com/products/captcha-advertising
 
 = Configuration Options =
 
@@ -32,7 +31,8 @@ Stop spam and bots on your website without frustrating your users.  Download Con
 * Determine how many pictures users must click
 * Choose to show or hide letters overlaid on the images, for optional typing input
 * Brand the CAPTCHA with your logo, images, or billboard ads
-* Use for login, on comment forms, registration forms or password resets  
+* Use for login, on comment forms, registration forms or password resets
+* Verify the CAPTCHA via AJAX, so the user knows if they solved the CAPTCHA correctly without having to submit the page
 
 = Benefits =
 
@@ -63,7 +63,7 @@ Please vote for and review this plugin!
 
 	2. Download and activate the Confident CAPTCHA Wordpress plugin from this site
 
-	3. Go to the Confident CAPTCHA settings (under "Settings"), make sure you have the API credentials you obtained from [Confident Technologies](http://login.confidenttechnologies.com/accounts/signin/?#).
+	3. Go to the Confident CAPTCHA settings (under "Settings"), make sure you have the API credentials you obtained from [Confident Technologies](https://login.confidenttechnologies.com/accounts/signin/?#).
 
 		* Customer ID	
 		* Site ID

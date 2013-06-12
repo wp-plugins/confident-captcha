@@ -98,35 +98,28 @@
       
       <h3><?php _e('General Options', 'confidentCaptcha'); ?></h3>
       <table class="form-table">
-         <tr valign="top">
-		    <th scope="row"><?php _e('Captcha Color', 'confidentCaptcha'); ?></th>
-			<td>
-			   <?php $this->cc_dropdown(); ?>
-			</td>
-         </tr>
-         <tr valign="top">
+          <tr valign="top">
+              <th scope="row"><?php _e('Captcha Color', 'confidentCaptcha'); ?></th>
+              <td>
+                  <?php $this->cc_dropdown(); ?>
+              </td>
+          </tr>
+          <tr valign="top">
             <th scope="row"><?php _e('Width', 'confidentCaptcha'); ?></th>
             <td>
-               <input type="text" name="confidentCaptcha_options[captcha_width]" size="4" value="<?php echo $this->options['captcha_width']; ?>" />
+               <input type="text" name="confidentCaptcha_options[width]" size="4" value="<?php echo $this->options['width']; ?>" />
             </td>
          </tr>
          <tr valign="top">
             <th scope="row"><?php _e('Height', 'confidentCaptcha'); ?></th>
             <td>
-               <input type="text" name="confidentCaptcha_options[captcha_height]" size="4" value="<?php echo $this->options['captcha_height']; ?>" />
+               <input type="text" name="confidentCaptcha_options[height]" size="4" value="<?php echo $this->options['height']; ?>" />
             </td>
          </tr>
          <tr valign="top">
             <th scope="row"><?php _e('Captcha Length', 'confidentCaptcha'); ?></th>
             <td>
                <input type="text" name="confidentCaptcha_options[captcha_length]" size="4" value="<?php echo $this->options['captcha_length']; ?>" />
-            </td>
-         </tr>
-         <tr valign="top">
-            <th scope="row"><?php _e('Show Letters:', 'confidentCaptcha'); ?></th>
-            <td>
-               <input type="checkbox" id ="confidentCaptcha_options[show_letters]" name="confidentCaptcha_options[show_letters]" value="1" <?php checked('1', $this->options['show_letters']); ?> />
-               <label for="confidentCaptcha_options[show_letters]"><?php _e('Show colored letters on Images:', 'confidentCaptcha'); ?></label>
             </td>
          </tr>
          <tr valign="top">
@@ -147,6 +140,12 @@
 			   <?php $this->displayStyle_dropdown(); ?>
 			</td>
          </tr>
+         <tr valign="top">
+             <th scope="row"><?php _e('Show Letters', 'confidentCaptcha'); ?></th>
+             <td>
+                 <?php $this->show_letters_dropdown(); ?>
+             </td>
+         </tr>
 	     <tr valign="top">
             <th scope="row"><?php _e('Logo Name', 'confidentCaptcha'); ?></th>
             <td>
@@ -160,6 +159,29 @@
 			</td>
          </tr>
       </table>
+
+      <h3><?php _e('Advanced Options', 'confidentCaptcha'); ?></h3>
+      <table class="form-table">
+          <tr valign="top">
+              <th scope="row"><?php _e('Failure Policy', 'confidentCaptcha'); ?></th>
+              <td>
+                  <?php $this->fp_dropdown(); ?>
+              </td>
+          </tr>
+          <tr valign="top">
+              <th scope="row"><?php _e('Ajax Verify', 'confidentCaptcha'); ?></th>
+              <td>
+                  <?php $this->ajax_verify_dropdown(); ?>
+              </td>
+          </tr>
+          <tr valign="top">
+              <th scope="row"><?php _e('Max Tries', 'confidentCaptcha'); ?></th>
+              <td>
+                  <input type="text" name="confidentCaptcha_options[max_tries]" size="4" value="<?php echo $this->options['max_tries']; ?>" />
+              </td>
+          </tr>
+      </table>
+
       <h3><?php _e('Messages', 'confidentCaptcha'); ?></h3>
       <table class="form-table">
          <tr valign="top">
@@ -169,14 +191,12 @@
                <label for="confidentCaptcha_options[captcha_description]"><?php _e('Enter a text description to display above CAPTCHA solution (Default: none)', 'confidentCaptcha'); ?></label>
             </td>
          </tr>
-	  
          <tr valign="top">
             <th scope="row"><?php _e('Confident CAPTCHA Ignored', 'confidentCaptcha'); ?></th>
             <td>
                <input type="text" name="confidentCaptcha_options[no_response_error]" size="70" value="<?php echo $this->options['no_response_error']; ?>" />
             </td>
          </tr>
-         
          <tr valign="top">
             <th scope="row"><?php _e('Incorrect Guess', 'confidentCaptcha'); ?></th>
             <td>

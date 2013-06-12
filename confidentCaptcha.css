@@ -4,7 +4,6 @@
    background-color: #FFEBE8;
    border: solid 1px #CC0000;
 }
-#confidentcaptcha_status {
-   position: relative;
-   height: 80px;
+.site {
+    overflow: visible !important;
 }
