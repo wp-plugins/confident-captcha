@@ -1,10 +1,10 @@
 === Confident CAPTCHA ===
 Contributors: ConfidentTechnologies
-Version: 2.5
+Version: 2.5.1
 Tags: CAPTCHA, CAPTCHA Security, CAPTCHA plugin, picture CAPTCHA, image CAPTCHA, Confident CAPTCHA, Simple CAPTCHA, anti-spam, anti-bot, security, capcha, catcha, captha, reCAPTCHA, login, lost password, registration, spam, comments, forgot password
 Requires at least: 3.0
 Tested up to: 3.5.1
-Stable tag: 2.5
+Stable tag: 2.5.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -85,13 +85,17 @@ Please vote for and review this plugin!
 5. Confident CAPTCHA in alternate color
 
 == Changelog ==
-
+=2.5.1 =
+* Added new CAPTCHA Color choices including:  Brown, Blue, Grey, Violet, Maroon, and Lime!
+* Improved the UI to have less issues when displayed near the bottom of a page.
 = 2.5 =
 * Enable AJAX to see if the solution was correct/incorrect immediately.
 * Max tries, set the number of times a user can solve Confident CAPTCHA.
 
 == Upgrade Notice ==
-
+=2.5.1 =
+   Added new CAPTCHA Color choices including:  Brown, Blue, Grey, Violet, Maroon, and Lime!
+   Improved the UI to have less issues when displayed near the bottom of a page.
 = 2.5 =
 Introduces immediate feedback via AJAX as well as lets you limit the number of times a user may solve the CAPTCHA per pageview.
 
