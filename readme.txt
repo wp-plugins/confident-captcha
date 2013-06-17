@@ -82,7 +82,7 @@ Please vote for and review this plugin!
 2. Confident CAPTCHA with Logo
 3. Confident CAPTCHA mobile on cell phone
 4. Confident CAPTCHA mobile on tablet
-5. Confident CAPTCHA with Billboard
+5. Confident CAPTCHA in alternate color
 
 == Changelog ==
 
