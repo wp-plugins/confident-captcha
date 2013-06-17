@@ -85,7 +85,7 @@ Please vote for and review this plugin!
 5. Confident CAPTCHA in alternate color
 
 == Changelog ==
-=2.5.1 =
+= 2.5.1 =
 * Added new CAPTCHA Color choices including:  Brown, Blue, Grey, Violet, Maroon, and Lime!
 * Improved the UI to have less issues when displayed near the bottom of a page.
 = 2.5 =
@@ -93,7 +93,7 @@ Please vote for and review this plugin!
 * Max tries, set the number of times a user can solve Confident CAPTCHA.
 
 == Upgrade Notice ==
-=2.5.1 =
+= 2.5.1 =
    Added new CAPTCHA Color choices including:  Brown, Blue, Grey, Violet, Maroon, and Lime!
    Improved the UI to have less issues when displayed near the bottom of a page.
 = 2.5 =
