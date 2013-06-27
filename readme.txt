@@ -67,6 +67,8 @@ Confident CAPTCHA protects all of the following:
 * Registration
 * Login
 
+== Frequently Asked Questions ==
+
 = How do I hide the CAPTCHA for site administrators/content creators? =
 Under the Comments Options you can select Hide for Registered Users who can --- and then select the appropriate option from the drop down menu.  In this case it would be publish posts.
 
