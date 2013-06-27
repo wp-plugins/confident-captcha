@@ -76,7 +76,7 @@ Please vote for and review this plugin!
 	
     Click [here](http://www.confidenttechnologies.com/content/how-install-confident-captcha-wordpress-website) to see a video showing how to install Confident CAPTCHA on Wordpress in only 5 minutes!
 	
-== FAQ ==
+== Frequently Asked Questions ==
 
 =  What forms does Confident CAPTCHA protect? =
 
