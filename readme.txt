@@ -76,6 +76,42 @@ Please vote for and review this plugin!
 	
     Click [here](http://www.confidenttechnologies.com/content/how-install-confident-captcha-wordpress-website) to see a video showing how to install Confident CAPTCHA on Wordpress in only 5 minutes!
 	
+== FAQ ==
+
+=  What forms does Confident CAPTCHA protect? =
+
+Confident CAPTCHA protects all of the following:
+* Comments
+* Lost Password
+* Registration
+* Login
+
+== FAQ ==
+
+= How do I hide the CAPTCHA for site administrators/content creators? =
+Under the Comments Options you can select Hide for Registered Users who can --- and then select the appropriate option from the drop down menu.  In this case it would be publish posts.
+
+= What is the maximum width / height I can use for the CAPTCHA? =
+You can use any combination of values but you can only display up to 16 images.  So the following are completely valid:
+     16x1   5x3   3x3  3x2   4x4 etc...
+
+=  How do I add my own logo and/or billboard to the CAPTCHA =
+You will need to login to your account at http://login.confidenttechnologies.com, select the site you created and then click Manage.    When you scroll down the page you will see an area to upload your logo and billboard.   The logo must be 120px or less wide and 60px or less high.   The billboard must be 360px or less wide and 60px or less high.   Once you have uploaded your logo and billboard use the name you entered.
+=  What exactly is Ajax Verify? =
+Ajax verify means that the user will know immediately after filling out the CAPTCHA whether or not they got it wrong.   Try enabling this feature and see for yourself after solving it.
+
+=  Can I limit the number of chances a user has to complete the CAPTCHA? =
+Yes by setting Max Tries to a specific value  ( 1 – 5 ) you can allow a user to only do it once or up to 5 times to solve.
+
+= I want to have some text above the CAPTCHA to tell my users what it is, how do I do that? =
+Under the Messages area on the settings page you will see CAPTCHA Title text, this field will allow you to enter whatever message you wish to convey to the users directly above the CAPTCHA solution.
+
+= Can I change the default error message when a user either does not attempt the captcha or fails it? =
+Absolutely,  the last two fields on the settings page under Messages are Confident CAPTCHA Ignored and Incorrect Guess.   You can set the messages appropriately for those two sections.
+
+=  What do I do if I have questions not listed here?  =
+You can contact our Support department at www.confidenttechnologies.com/contact and they would be more than happy to assist you.
+
 == Screenshots ==
 
 1. Confident CAPTCHA with Logo and Billboard
