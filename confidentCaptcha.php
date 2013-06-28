@@ -226,14 +226,14 @@ if (!class_exists('confidentCaptcha')) {
             $capabilities = array ('read', 'edit_posts', 'publish_posts', 'moderate_comments', 'activate_plugins');
             $captchaColors = array ('Pearl', 'Black', 'Tangerine','Pink','Purple', 'Orange', 'Yellow', 'Aqua', 'Green', 'Red','Brown','Blue','Maroon','Violet','Gray','Lime');
             $codeColors = array ('White', 'Red', 'Orange','Yellow','Green', 'Teal', 'Blue', 'Indigo', 'Violet', 'Gray');
-			$noiseLvls = array ('.10', '.20', '.30', '.40', '.50', '.60', '.70', '.80', '.90');
-			$displayStyles = array ('lightbox', 'flyout');
+            $noiseLvls = array ('.10', '.20', '.30', '.40', '.50', '.60', '.70', '.80', '.90');
+            $displayStyles = array ('lightbox', 'flyout','inline-below');
             $trueFalse = array('TRUE', 'FALSE');
             $failurePolicy = array('math', 'open', 'closed');
             $validated['minimum_bypass_level'] = $this->validate_dropdown($capabilities, 'minimum_bypass_level', $input['minimum_bypass_level']);
             $validated['captcha_color'] = $this->validate_dropdown($captchaColors, 'captcha_color', $input['captcha_color']);
             $validated['image_code_color'] = $this->validate_dropdown($codeColors, 'image_code_color', $input['image_code_color']);
-			$validated['noise_level'] = $this->validate_dropdown($noiseLvls, 'noise_level', $input['noise_level']);
+            $validated['noise_level'] = $this->validate_dropdown($noiseLvls, 'noise_level', $input['noise_level']);
 			$validated['display_style'] = $this->validate_dropdown($displayStyles, 'display_style', $input['display_style']);
             $validated['comments_tab_index'] = $input['comments_tab_index'] ? $input["comments_tab_index"] : 5;
             $validated['show_in_registration'] = ($input['show_in_registration'] == 1 ? 1 : 0);
@@ -683,7 +683,8 @@ JS;
         function displayStyle_dropdown() {
             $displayStyle = array (
                 __('lightbox', 'confidentCaptcha') => 'lightbox',
-                __('flyout', 'confidentCaptcha') => 'flyout'
+                __('flyout', 'confidentCaptcha') => 'flyout',
+                __('inline', 'confidentCaptcha') => 'inline-below'
             );
             $this->build_dropdown('confidentCaptcha_options[display_style]', $displayStyle, $this->options['display_style']);
         }

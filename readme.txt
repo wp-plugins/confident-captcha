@@ -1,10 +1,10 @@
 === Confident CAPTCHA ===
 Contributors: ConfidentTechnologies
-Version: 2.5.1
+Version: 2.5.2
 Tags: CAPTCHA, CAPTCHA Security, CAPTCHA plugin, picture CAPTCHA, image CAPTCHA, Confident CAPTCHA, Simple CAPTCHA, anti-spam, anti-bot, security, capcha, catcha, captha, reCAPTCHA, login, lost password, registration, spam, comments, forgot password
 Requires at least: 3.0
 Tested up to: 3.5.1
-Stable tag: 2.5.1
+Stable tag: 2.5.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -86,8 +86,6 @@ Confident CAPTCHA protects all of the following:
 * Registration
 * Login
 
-== FAQ ==
-
 = How do I hide the CAPTCHA for site administrators/content creators? =
 Under the Comments Options you can select Hide for Registered Users who can --- and then select the appropriate option from the drop down menu.  In this case it would be publish posts.
 
@@ -121,6 +119,9 @@ You can contact our Support department at www.confidenttechnologies.com/contact 
 5. Confident CAPTCHA in alternate color
 
 == Changelog ==
+= 2.5.2 =
+* Added new inline display style so that Confident CAPTCHA does not appear on top of content but now inline with it as well.  Try it out!
+
 = 2.5.1 =
 * Added new CAPTCHA Color choices including:  Brown, Blue, Grey, Violet, Maroon, and Lime!
 * Improved the UI to have less issues when displayed near the bottom of a page.
@@ -129,6 +130,8 @@ You can contact our Support department at www.confidenttechnologies.com/contact 
 * Max tries, set the number of times a user can solve Confident CAPTCHA.
 
 == Upgrade Notice ==
+= 2.5.2 =
+ Added new inline display style so that Confident CAPTCHA does not appear on top of content but now inline with it as well.  Try it out!
 = 2.5.1 =
    Added new CAPTCHA Color choices including:  Brown, Blue, Grey, Violet, Maroon, and Lime!
    Improved the UI to have less issues when displayed near the bottom of a page.
