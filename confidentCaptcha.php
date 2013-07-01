@@ -325,7 +325,14 @@ if (!class_exists('confidentCaptcha')) {
                 return md5(confidentCaptcha_WP_HASH_SALT . $this->options['site_id'] . $id);
         }
         function get_confidentCaptcha_html($confidentCaptcha_error, $use_ssl=false) {
-			$desc_msg = $this->options['captcha_description'] != '' ? '<p>'.filter_var($this->options['captcha_description'], FILTER_SANITIZE_STRING) . '</p>' : '';
+           if($this->options['site_id'] == null || $this->options['site_id'] == '' ||
+              $this->options['customer_id'] == null || $this->options['customer_id'] == '' ||
+              $this->options['api_username'] == null || $this->options['api_username'] == '' ||
+              $this->options['api_password'] == null || $this->options['api_password'] == '')
+           {
+              die("To use confidentCaptcha you must get an API key from <a href='https://www.confidenttechnologies.com'>https://www.confidenttechnologies.com</a>");
+           }
+           $desc_msg = $this->options['captcha_description'] != '' ? '<p>'.filter_var($this->options['captcha_description'], FILTER_SANITIZE_STRING) . '</p>' : '';
             if($this->options['ajax_verify'] == "TRUE"){
 
                 $client = $this->getClient();
