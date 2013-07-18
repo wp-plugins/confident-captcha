@@ -53,13 +53,13 @@ Stop spam and bots on your website without frustrating your users.  Download Con
 
 Wordpress >= 3.0, simpleXML and cURL extensions
 
-You will need an API key from [Confident Technologies](http://www.confidenttechnologies.com/content/get-confident-captcha-today "Confident CAPTCHA") to use this plugin. Keys are free for sites with up to 50,000 CAPTCHAs displayed monthly. 
+You will need an API key from [Confident Technologies](http://www.confidentcaptcha.com/Wordpress "Confident CAPTCHA") to use this plugin. Keys are free for sites with up to 50,000 CAPTCHAs displayed monthly. 
 
 Please vote for and review this plugin!
 
 == Installation ==
 
-	1. Register for an account at [http://www.confidenttechnologies.com/content/get-confident-captcha-today](http://www.confidenttechnologies.com/content/get-confident-captcha-today) to get your API Credentials
+	1. Register for an account at [http://www.ConfidentCAPTCHA.com/WordPress](http://www.ConfidentCAPTCHA.com/WordPress) to get your API Credentials
 
 	2. Download and activate the Confident CAPTCHA Wordpress plugin from this site
 
