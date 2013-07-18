@@ -53,7 +53,7 @@ Stop spam and bots on your website without frustrating your users.  Download Con
 
 Wordpress >= 3.0, simpleXML and cURL extensions
 
-You will need an API key from [Confident Technologies](http://www.confidentcaptcha.com/Wordpress "Confident CAPTCHA") to use this plugin. Keys are free for sites with up to 50,000 CAPTCHAs displayed monthly. 
+You will need an API key from [Confident Technologies](http://www.confidentcaptcha.com/Wordpress) to use this plugin. Keys are free for sites with up to 50,000 CAPTCHAs displayed monthly. 
 
 Please vote for and review this plugin!
 
