@@ -1,7 +1,7 @@
 === Confident CAPTCHA ===
 Contributors: ConfidentTechnologies
 Version: 2.5.2
-Tags: CAPTCHA, CAPTCHA Security, CAPTCHA plugin, picture CAPTCHA, image CAPTCHA, Confident CAPTCHA, Simple CAPTCHA, anti-spam, anti-bot, security, capcha, catcha, captha, reCAPTCHA, login, lost password, registration, spam, comments, forgot password
+Tags: CAPTCHA, CAPTCHA Security, CAPTCHA plugin, picture CAPTCHA, image CAPTCHA, Confident CAPTCHA, Simple CAPTCHA, anti-spam, anti-bot, security, capcha, catcha, captha, reCAPTCHA, login, lost password, registration, spam, comments, forgot password, advertising, advertisement, advertising plugin, monetize, monetization
 Requires at least: 3.0
 Tested up to: 3.5.1
 Stable tag: 2.5.2
@@ -11,7 +11,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Confident CAPTCHA&#8482; is a clickable, picture CAPTCHA that stops spam and malicious bots, while remaining very easy for people to solve.
 
 == Description ==
-Confident CAPTCHA&#8482; is a clickable, picture CAPTCHA that stops spam and malicious bots, while remaining very easy for people to solve. All your website visitors have to do is click a few specific pictures to prove they are human and not a bot. It takes just a few seconds to solve.
+Confident CAPTCHA&#8482; is a clickable, picture CAPTCHA that stops spam and malicious bots, while remaining very easy for people to solve. All your website visitors have to do is click a few specific pictures to prove they are human and not a bot. It takes just a few seconds to solve. Use Confident CAPTCHA to stop spam and bots on comment forms, logins, registration forms and password resets.
 
 Stop spam and bots on your website without frustrating your users.  Download Confident CAPTCHA today! 
 
@@ -20,18 +20,19 @@ Stop spam and bots on your website without frustrating your users.  Download Con
 
 * Picture-based CAPTCHA, easy to use
 * No typing required
-* International languages: Spanish, French, German, Portuguese and more
-* Audio option for the visually impaired
-* Mobile-optimized version available (works on Apple or Android-based smartphones and tablets)
+* International languages supported
+* Audio option
+* Mobile-optimized version available
 * Fail-over coverage
+* Optional: Generate revenue by allowing companies to advertise in the CAPTCHA on your website.
 
 = Configuration Options =
 
-* Dial-up or dial-down security by increasing or decreasing the size of the grid and the number of pictures shown to users
+* Dial-up or dial-down security
+* Choose image grid size and number of images shown
 * Determine how many pictures users must click
-* Choose to show or hide letters overlaid on the images, for optional typing input
-* Brand the CAPTCHA with your logo, images, or billboard ads
-* Use for login, on comment forms, registration forms or password resets
+* Display or hide letters overlaid on the images, for optional typing input
+* Brand the CAPTCHA with your logo, colors, or billboard ads
 * Verify the CAPTCHA via AJAX, so the user knows if they solved the CAPTCHA correctly without having to submit the page
 
 = Benefits =
@@ -53,7 +54,7 @@ Stop spam and bots on your website without frustrating your users.  Download Con
 
 Wordpress >= 3.0, simpleXML and cURL extensions
 
-You will need an API key from [Confident Technologies](http://www.confidentcaptcha.com/Wordpress) to use this plugin. Keys are free for sites with up to 50,000 CAPTCHAs displayed monthly. 
+You will need an API key from [http://www.ConfidentCaptcha.com/WordPress](http://www.confidentcaptcha.com/Wordpress) to use this plugin. Keys are free for sites with up to 50,000 CAPTCHAs displayed monthly. 
 
 Please vote for and review this plugin!
 
