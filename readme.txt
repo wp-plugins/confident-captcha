@@ -3,7 +3,7 @@ Contributors: ConfidentTechnologies
 Version: 2.5.2
 Tags: CAPTCHA, CAPTCHA Security, CAPTCHA plugin, picture CAPTCHA, image CAPTCHA, Confident CAPTCHA, Simple CAPTCHA, anti-spam, anti-bot, security, capcha, catcha, captha, reCAPTCHA, login, lost password, registration, spam, comments, forgot password, advertising, advertisement, advertising plugin, monetize, monetization
 Requires at least: 3.0
-Tested up to: 3.5.1
+Tested up to: 3.6.1
 Stable tag: 2.5.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
