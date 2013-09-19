@@ -1,10 +1,10 @@
 === Confident CAPTCHA ===
 Contributors: ConfidentTechnologies
-Version: 2.5.2
+Version: 2.5.3
 Tags: CAPTCHA, CAPTCHA Security, CAPTCHA plugin, picture CAPTCHA, image CAPTCHA, Confident CAPTCHA, Simple CAPTCHA, anti-spam, anti-bot, security, capcha, catcha, captha, reCAPTCHA, login, lost password, registration, spam, comments, forgot password, advertising, advertisement, advertising plugin, monetize, monetization
 Requires at least: 3.0
 Tested up to: 3.6.1
-Stable tag: 2.5.2
+Stable tag: 2.5.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -120,6 +120,10 @@ You can contact our Support department at www.confidenttechnologies.com/contact 
 5. Confident CAPTCHA - Video Advertising
 
 == Changelog ==
+= 2.5.3 =
+* Added legacy support for IE7 + IE5 quirks mode
+* Alternate inline style for display with ads to the right or below the CAPTCHA 
+
 = 2.5.2 =
 * Added new inline display style so that Confident CAPTCHA does not appear on top of content but now inline with it as well.  Try it out!
 
@@ -131,6 +135,8 @@ You can contact our Support department at www.confidenttechnologies.com/contact 
 * Max tries, set the number of times a user can solve Confident CAPTCHA.
 
 == Upgrade Notice ==
+= 2.5.3 =
+ Added legacy support for IE7, IE5 Quirks document mode, additional inline display style for sites with ads enabled.
 = 2.5.2 =
  Added new inline display style so that Confident CAPTCHA does not appear on top of content but now inline with it as well.  Try it out!
 = 2.5.1 =

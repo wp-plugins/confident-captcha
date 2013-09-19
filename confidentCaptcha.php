@@ -227,7 +227,7 @@ if (!class_exists('confidentCaptcha')) {
             $captchaColors = array ('Pearl', 'Black', 'Tangerine','Pink','Purple', 'Orange', 'Yellow', 'Aqua', 'Green', 'Red','Brown','Blue','Maroon','Violet','Gray','Lime');
             $codeColors = array ('White', 'Red', 'Orange','Yellow','Green', 'Teal', 'Blue', 'Indigo', 'Violet', 'Gray');
             $noiseLvls = array ('.10', '.20', '.30', '.40', '.50', '.60', '.70', '.80', '.90');
-            $displayStyles = array ('lightbox', 'flyout','inline-below');
+            $displayStyles = array ('lightbox', 'flyout','inline-below','inline-right');
             $trueFalse = array('TRUE', 'FALSE');
             $failurePolicy = array('math', 'open', 'closed');
             $validated['minimum_bypass_level'] = $this->validate_dropdown($capabilities, 'minimum_bypass_level', $input['minimum_bypass_level']);
@@ -684,7 +684,8 @@ JS;
             $displayStyle = array (
                 __('lightbox', 'confidentCaptcha') => 'lightbox',
                 __('flyout', 'confidentCaptcha') => 'flyout',
-                __('inline', 'confidentCaptcha') => 'inline-below'
+                __('inline-below', 'confidentCaptcha') => 'inline-below',
+                __('inline-right', 'confidentCaptcha') => 'inline-right'
             );
             $this->build_dropdown('confidentCaptcha_options[display_style]', $displayStyle, $this->options['display_style']);
         }
