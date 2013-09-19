@@ -281,7 +281,7 @@ if (!class_exists('confidentCaptcha')) {
                 'api_password'=>$this->options['api_password'],
                 'customer_id'=>$this->options['customer_id'],
                 'site_id'=>$this->options['site_id'],
-                'library_version'=>'20130514_WordPress_2.5',
+                'library_version'=>'20130514_WordPress_2.5.2',
 				'click_coordinates'=>$_POST['confidentcaptcha_click_coordinates'],
 				'code'=>$_POST['confidentcaptcha_code'],
 				'confidentCaptchaID'=>$_POST['confidentcaptcha_captcha_id']
