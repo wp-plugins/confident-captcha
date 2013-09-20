@@ -24,6 +24,7 @@ Stop spam and bots on your website without frustrating your users.  Download Con
 * Audio option
 * Mobile-optimized version available
 * Fail-over coverage
+* Supported in every major browser
 * Optional: Generate revenue by allowing companies to advertise in the CAPTCHA on your website.
 
 = Configuration Options =
