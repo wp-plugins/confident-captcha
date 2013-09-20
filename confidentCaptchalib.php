@@ -16,8 +16,7 @@ function _confidentCaptcha_http_post($host, $path, $data, $port = 80) {
        $response = curl_exec($ch);
 	   return $response;
 }
-function encode_POST_data($data)
-{
+function encode_POST_data($data) {
    $req = "";
    foreach ($data as $key => $value)
    {
@@ -26,9 +25,7 @@ function encode_POST_data($data)
    $req = rtrim($req, '&');
    return $req;
 }
-
-function confidentCaptcha_get_html ($options, $error = null, $use_ssl = false)
-{
+function confidentCaptcha_get_html ($options, $error = null, $use_ssl = false) {
 	if ($options['site_id'] == null || $options['site_id'] == '') {
 		die ("To use confidentCaptcha you must get an API key from <a href='https://www.confidenttechnologies.com'>https://www.confidenttechnologies.com</a>");
 	}
@@ -47,8 +44,7 @@ function confidentCaptcha_get_html ($options, $error = null, $use_ssl = false)
         }
 		return $response;
 }
-function createArithmeticCaptcha()
-{
+function createArithmeticCaptcha() {
    $captcha = <<<CAPTCHA
    <script type="text/javascript">
       var a = Math.ceil(Math.random() * 10);
@@ -66,8 +62,7 @@ function createArithmeticCaptcha()
 CAPTCHA;
    return $captcha;
 }
-function validateArithmeticCaptcha($request)
-{
+function validateArithmeticCaptcha($request) {
    // init our return value
    $matchCaptchaRequestPassed = false;
 
@@ -92,24 +87,22 @@ class confidentCaptchaResponse {
         var $error;
 }
 
-function confidentCaptcha_check_answer ($data)
-{
+function confidentCaptcha_check_answer ($data) {
     if( isset($_POST['arithmeticCaptchaNumberA']) )
-	{
-	    $result = $this->validateArithmeticCaptcha($_POST);
-		if ( $result == true ){
-		    $confidentCaptcha_response->is_valid = true;
-		}
-	    else
-		{
-                $confidentCaptcha_response->is_valid = false;
-                $confidentCaptcha_response->error = "Confident CAPTCHA was solved incorrectly";
+    {
+        $result = $this->validateArithmeticCaptcha($_POST);
+        if ( $result == true ){
+            $confidentCaptcha_response->is_valid = true;
+        }
+        else {
+            $confidentCaptcha_response->is_valid = false;
+            $confidentCaptcha_response->error = "Confident CAPTCHA was solved incorrectly";
         }
         return $confidentCaptcha_response;
-	}
-	if ($data['api_username'] == null || $data['api_username'] == '') {
-		die ("To use confidentCaptcha you must get an API key from <a href='https://www.google.com/confidentCaptcha/admin/create'>https://www.google.com/confidentCaptcha/admin/create</a>");
-	}
+    }
+    if ($data['api_username'] == null || $data['api_username'] == '') {
+        die ("To use confidentCaptcha you must get an API key from <a href='https://www.google.com/confidentCaptcha/admin/create'>https://www.google.com/confidentCaptcha/admin/create</a>");
+    }
    $server = confidentCaptcha_API_SECURE_SERVER . '/' . $data['confidentCaptchaID'];
    $options = array (
       'api_username' => $data['api_username'],
