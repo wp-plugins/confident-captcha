@@ -117,7 +117,7 @@
             </td>
          </tr>
          <tr valign="top">
-            <th scope="row"><?php _e('Captcha Length', 'confidentCaptcha'); ?></th>
+            <th scope="row"><?php _e('Clicks to Solve', 'confidentCaptcha'); ?></th>
             <td>
                <input type="text" name="confidentCaptcha_options[captcha_length]" size="4" value="<?php echo $this->options['captcha_length']; ?>" />
             </td>
