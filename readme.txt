@@ -20,13 +20,23 @@ Stop spam and bots on your website without frustrating your users.  Download Con
 = Features =
 
 * Picture-based CAPTCHA, easy to use
-* No typing required
-* International languages supported
+* No typing required for Confident CAPTCHA
 * CAPTCHA audio option
 * Mobile-optimized CAPTCHA version available
-* Fail-over coverage
+* Fail-over coverage so your site is always CAPTCHA protected
 * Confident CAPTCHA is supported in every major browser
 * Optional: Generate revenue by allowing companies to advertise in the CAPTCHA on your website.
+
+= Confident CAPTCHA Localization =
+Confident CAPTCHA is available in several languages and we are continuing to expand our translation database for Confident CAPTCHA.  If you have a translation you would like to see added to Confident CAPTCHA please send us an email.
+
+* English Confident CAPTCHA translation
+* German Confident CAPTCHA translation
+* French Confident CAPTCHA translation
+* Portuguese Confident CAPTCHA translation
+* Russian Confident CAPTCHA translation
+* Spanish Confident CAPTCHA translation
+* and more!
 
 = Configuration Options =
 
