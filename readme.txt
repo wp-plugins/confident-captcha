@@ -94,6 +94,9 @@ Please vote for and review Confident CAPTCHA!
 = What is a CAPTCHA? =
 CAPTCHA is a program or system intended to distinguish human from machine input, typically as a way of thwarting spam and automated extraction of data from websites.
 
+= Why choose confident CAPTCHA over the 1000s of CAPTCHAs out there? =
+Confident CAPTCHA eliminates the once standard tradeoff between user experience and security by introducing an innovative approach to digital security that is inherently user friendly as it is secure. For those sites with the right stuff Confident CAPTCHA provides a seamless platform for monetization, giving publishers substantial new revenue streams.
+
 = What browsers support Confident CAPTCHA? =
 Our CAPTCHA is supported by all major browsers and is backward compatible with IE7 and beyond.
 
