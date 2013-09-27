@@ -91,6 +91,33 @@ Please vote for and review Confident CAPTCHA!
 	
 == Frequently Asked Questions ==
 
+= What is a CAPTCHA? =
+CAPTCHA is a program or system intended to distinguish human from machine input, typically as a way of thwarting spam and automated extraction of data from websites.
+
+= What browsers support Confident CAPTCHA? =
+Our CAPTCHA is supported by all major browsers and is backward compatible with IE7 and beyond.
+
+= Does your CAPTCHA support mobile devices? =
+Our mobile-optimized CAPTCHA solution works great on all website being viewed from a mobile device. Try the mobile optimized CAPTCHA yourself to see the difference it makes!
+
+= Does your CAPTCHA require Flash? =
+Not at all, our CAPTCHA is built from the ground up using HTML and javascript.  If your site has javascript disabled you will not be able to run Confident CAPTCHA.
+
+= I'm concerned about server load given that Confident CAPTCHA is an image-based CAPTCHA solution.  How much time does it take for your CAPTCHA to load? =
+Confident CAPTCHA has a very small footprint and takes less than 2 seconds to load.
+
+= Where can I find a demo of your CAPTCHA? =
+If you are interested in seeing screenshots of Confident CAPTCHA, simply click on the screenshots tab.  If you want to see the live CAPTCHA click [here](http://confidentcaptcha.com)
+
+= Should I have multiple accounts on your site if I'm going to use Confident CAPTCHA on more than one of my websites? =
+No, you are able to add as many sites as you wish to your dashboard account.  It is a recommended practice that you use different CAPTCHA credentials for each of your sites you have Confident CAPTCHA displayed on.
+
+= Do you have any restrictions on a website that uses Confident CAPTCHA?
+Yes you cannot have illegal content on a site that has Confident CAPTCHA installed.
+
+= My site uses HTTPS.  Does your CAPTCHA work with HTTPS sites?
+Absolutely, the CAPTCHA plugin automatically detects a secure (HTTPS) connection and routes it to the correct Confident CAPTCHA server.
+
 =  What forms does Confident CAPTCHA protect? =
 
 Confident CAPTCHA protects all of the following:
@@ -109,20 +136,23 @@ You can use any combination of values but you can only display up to 16 images o
 
 =  How do I add my own logo and/or billboard to the CAPTCHA =
 You will need to login to your Confident CAPTCHA account at http://login.confidenttechnologies.com, select the site you created and then click Manage.    When you scroll down the page you will see an area to upload your logo and billboard to the CAPTCHA.   The logo must be 120px or less wide and 60px or less high.   The billboard must be 360px or less wide and 60px or less high.   Once you have uploaded your logo and billboard use the name you entered.
+
 =  What exactly is Ajax Verify? =
 Ajax verify means that the user will know immediately after filling out the CAPTCHA whether or not they got it wrong.   Try enabling this Confident CAPTCHA feature and see for yourself after solving it.
 
 =  Can I limit the number of chances a user has to complete the CAPTCHA? =
-Yes by setting Max Tries to a specific value  ( 1 – 5 ) you can allow a user to only do it once or up to 5 times to solve.
+Yes by setting Max Tries to a specific value  ( 1 – 5 ) you can allow a user to complete the CAPTCHA once or up to 5 times.
 
 = I want to have some text above the CAPTCHA to tell my users what it is, how do I do that? =
 Under the Messages area on the settings page you will see CAPTCHA Title text, this field will allow you to enter whatever message you wish to convey to the users directly above the CAPTCHA solution.
 
-= Can I change the default error message when a user either does not attempt the captcha or fails it? =
+= Can I change the default CAPTCHA error message when a user either does not attempt the captcha or fails it? =
 Absolutely,  the last two fields on the settings page under Messages are Confident CAPTCHA Ignored and Incorrect Guess.   You can set the messages appropriately for those two sections.
 
-=  What do I do if I have questions not listed here?  =
-You can contact our Support department at www.confidenttechnologies.com/contact and they would be more than happy to assist you.
+=  What do I do if I have questions about Confident CAPTCHA that are not listed here?  =
+You can contact our Support department at www.confidenttechnologies.com/contact and they would be more than happy to assist you with CAPTCHA related issues.
+
+
 
 == Screenshots ==
 
