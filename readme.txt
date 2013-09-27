@@ -84,6 +84,7 @@ Please vote for and review Confident CAPTCHA!
 =  What forms does Confident CAPTCHA protect? =
 
 Confident CAPTCHA protects all of the following:
+
 * Confident CAPTCHA for Comments
 * Confident CAPTCHA for Lost Password
 * Confident CAPTCHA for Registration
