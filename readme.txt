@@ -1,17 +1,18 @@
 === Confident CAPTCHA ===
 Contributors: ConfidentTechnologies
 Version: 2.5.3
-Tags: CAPTCHA, CAPTCHA Security, CAPTCHA plugin, picture CAPTCHA, image CAPTCHA, Confident CAPTCHA, Simple CAPTCHA, anti-spam, anti-bot, security, capcha, catcha, captha, reCAPTCHA, login, lost password, registration, spam, comments, forgot password, advertising, advertisement, advertising plugin, monetize, monetization
+Tags: captcha, captcha Security, captcha plugin, picture captcha, image captcha, Confident captcha, Simple captcha, kaptcha, kapcha, plugin, registration captcha, images captcha, anti-spam, anti-bot, security, capcha, catcha, captha, reCAPTCHA, login, lost password, registration, spam, comments, forgot password, advertising, advertisement, advertising plugin, monetize, monetization
+
 Requires at least: 3.0
 Tested up to: 3.6.1
 Stable tag: 2.5.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Confident CAPTCHA&#8482; is a clickable, picture CAPTCHA that stops spam and malicious bots, while remaining very easy for people to solve.
+Confident CAPTCHA&#8482; is a clickable, picture CAPTCHA that stops spam and malicious bots, while remaining a very easy CAPTCHA for people to solve.
 
 == Description ==
-Confident CAPTCHA&#8482; is a clickable, picture CAPTCHA that stops spam and malicious bots, while remaining very easy for people to solve. All your website visitors have to do is click a few specific pictures to prove they are human and not a bot. It takes just a few seconds to solve. Use Confident CAPTCHA to stop spam and bots on comment forms, logins, registration forms and password resets.
+Confident CAPTCHA&#8482; is a clickable, picture CAPTCHA that stops spam and malicious bots, while remaining a very easy CAPTCHA for people to solve. All your website visitors have to do is click a few specific pictures on the CAPTCHA to prove they are human and not a bot. Confident CAPTCHA takes just a few seconds to solve. Use Confident CAPTCHA to stop spam and bots on comment forms, logins, registration forms and password resets.
 
 Stop spam and bots on your website without frustrating your users.  Download Confident CAPTCHA today! 
 
@@ -21,18 +22,18 @@ Stop spam and bots on your website without frustrating your users.  Download Con
 * Picture-based CAPTCHA, easy to use
 * No typing required
 * International languages supported
-* Audio option
-* Mobile-optimized version available
+* CAPTCHA audio option
+* Mobile-optimized CAPTCHA version available
 * Fail-over coverage
-* Supported in every major browser
+* Confident CAPTCHA is supported in every major browser
 * Optional: Generate revenue by allowing companies to advertise in the CAPTCHA on your website.
 
 = Configuration Options =
 
-* Dial-up or dial-down security
-* Choose image grid size and number of images shown
-* Determine how many pictures users must click
-* Display or hide letters overlaid on the images, for optional typing input
+* Dial-up or dial-down CAPTCHA security
+* Choose the CAPTCHA image grid size and number of images shown on the CAPTCHA
+* Determine how many pictures users must click to solve Confident CAPTCHA
+* Display or hide letters overlaid on the CAPTCHA images, for optional typing input
 * Brand the CAPTCHA with your logo, colors, or billboard ads
 * Verify the CAPTCHA via AJAX, so the user knows if they solved the CAPTCHA correctly without having to submit the page
 
@@ -42,7 +43,7 @@ Stop spam and bots on your website without frustrating your users.  Download Con
 * End user frustration
 * Increase conversion rates
 * Reduce web page abandonment
-* Easy to deploy
+* Confident CAPTCHA is easy to deploy
 
 = Confident CAPTCHA integration with Wordpress protects the following =
 
@@ -55,13 +56,13 @@ Stop spam and bots on your website without frustrating your users.  Download Con
 
 Wordpress >= 3.0, simpleXML and cURL extensions
 
-You will need an API key from [http://ConfidentCaptcha.com/WordPress](http://confidentcaptcha.com/Wordpress) to use this plugin. Keys are free for sites with up to 50,000 CAPTCHAs displayed monthly. 
+You will need an API key from [http://ConfidentCaptcha.com/WordPress](http://confidentcaptcha.com/Wordpress) to use Confident CAPTCHA. Keys are free for sites with up to 50,000 CAPTCHAs displayed monthly. 
 
-Please vote for and review this plugin!
+Please vote for and review Confident CAPTCHA!
 
 == Installation ==
 
-	1. Register for an account at [http://ConfidentCAPTCHA.com/WordPress](http://ConfidentCAPTCHA.com/WordPress) to get your API Credentials
+	1. Register for a Confident CAPTCHA account at [http://ConfidentCAPTCHA.com/WordPress](http://ConfidentCAPTCHA.com/WordPress) to get your API Credentials for Confident CAPTCHA
 
 	2. Download and activate the Confident CAPTCHA Wordpress plugin from this site
 
@@ -83,22 +84,22 @@ Please vote for and review this plugin!
 =  What forms does Confident CAPTCHA protect? =
 
 Confident CAPTCHA protects all of the following:
-* Comments
-* Lost Password
-* Registration
-* Login
+* Confident CAPTCHA for Comments
+* Confident CAPTCHA for Lost Password
+* Confident CAPTCHA for Registration
+* Confident CAPTCHA for Login
 
 = How do I hide the CAPTCHA for site administrators/content creators? =
-Under the Comments Options you can select Hide for Registered Users who can --- and then select the appropriate option from the drop down menu.  In this case it would be publish posts.
+Go to the Confident CAPTCHA settings page. Under the Comments Options you can select Hide for Registered Users who can --- and then select the appropriate option from the drop down menu.  In this case it would be publish posts.
 
 = What is the maximum width / height I can use for the CAPTCHA? =
-You can use any combination of values but you can only display up to 16 images.  So the following are completely valid:
+You can use any combination of values but you can only display up to 16 images on Confident CAPTCHA.  So the following are completely valid:
      16x1   5x3   3x3  3x2   4x4 etc...
 
 =  How do I add my own logo and/or billboard to the CAPTCHA =
-You will need to login to your account at http://login.confidenttechnologies.com, select the site you created and then click Manage.    When you scroll down the page you will see an area to upload your logo and billboard.   The logo must be 120px or less wide and 60px or less high.   The billboard must be 360px or less wide and 60px or less high.   Once you have uploaded your logo and billboard use the name you entered.
+You will need to login to your Confident CAPTCHA account at http://login.confidenttechnologies.com, select the site you created and then click Manage.    When you scroll down the page you will see an area to upload your logo and billboard to the CAPTCHA.   The logo must be 120px or less wide and 60px or less high.   The billboard must be 360px or less wide and 60px or less high.   Once you have uploaded your logo and billboard use the name you entered.
 =  What exactly is Ajax Verify? =
-Ajax verify means that the user will know immediately after filling out the CAPTCHA whether or not they got it wrong.   Try enabling this feature and see for yourself after solving it.
+Ajax verify means that the user will know immediately after filling out the CAPTCHA whether or not they got it wrong.   Try enabling this Confident CAPTCHA feature and see for yourself after solving it.
 
 =  Can I limit the number of chances a user has to complete the CAPTCHA? =
 Yes by setting Max Tries to a specific value  ( 1 – 5 ) you can allow a user to only do it once or up to 5 times to solve.
@@ -122,29 +123,29 @@ You can contact our Support department at www.confidenttechnologies.com/contact 
 
 == Changelog ==
 = 2.5.3 =
-* Added legacy support for IE7 + IE5 quirks mode
-* Alternate inline style for display with ads to the right or below the CAPTCHA 
+* Added legacy support on Confident CAPTCHA for IE7 + IE5 quirks mode
+* Alternate inline CAPTCHA style for display with ads to the right or below the CAPTCHA 
 
 = 2.5.2 =
 * Added new inline display style so that Confident CAPTCHA does not appear on top of content but now inline with it as well.  Try it out!
 
 = 2.5.1 =
 * Added new CAPTCHA Color choices including:  Brown, Blue, Grey, Violet, Maroon, and Lime!
-* Improved the UI to have less issues when displayed near the bottom of a page.
+* Improved CAPTCHA UI to have less issues when displayed near the bottom of a page.
 = 2.5 =
-* Enable AJAX to see if the solution was correct/incorrect immediately.
+* Enable AJAX for Confident CAPTCHA to see if the solution was correct/incorrect immediately.
 * Max tries, set the number of times a user can solve Confident CAPTCHA.
 
 == Upgrade Notice ==
 = 2.5.3 =
- Added legacy support for IE7, IE5 Quirks document mode, additional inline display style for sites with ads enabled.
+ Added legacy support to Confident CAPTCHA for IE7, IE5 Quirks document mode, additional inline CAPTCHA display style for sites with ads enabled.
 = 2.5.2 =
- Added new inline display style so that Confident CAPTCHA does not appear on top of content but now inline with it as well.  Try it out!
+ Added new CAPTCHA inline display style so that Confident CAPTCHA does not appear on top of content but now inline with it as well.  Try it out!
 = 2.5.1 =
    Added new CAPTCHA Color choices including:  Brown, Blue, Grey, Violet, Maroon, and Lime!
-   Improved the UI to have less issues when displayed near the bottom of a page.
+   Improved CAPTCHA UI to have less issues when displayed near the bottom of a page.
 = 2.5 =
-Introduces immediate feedback via AJAX as well as lets you limit the number of times a user may solve the CAPTCHA per pageview.
+Confident CAPTCHA now has immediate feedback via AJAX as well as lets you limit the number of times a user may solve the CAPTCHA per pageview.
 
 == ATTENTION ==
 To install our CAPTCHA you have to follow instructions in Installation tab. Otherwise the CAPTCHA won't work correctly.
