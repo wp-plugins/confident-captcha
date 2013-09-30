@@ -52,7 +52,7 @@ Confident CAPTCHA is available in several languages and we are continuing to exp
 * Stop spam, fraudulent registrations and other malicious activities from bots
 * End user frustration
 * Increase conversion rates
-* Reduce web page abandonment
+* Confident CAPTCHA reduces website abandonment
 * Confident CAPTCHA is easy to deploy
 
 = Confident CAPTCHA integration with Wordpress protects the following =
