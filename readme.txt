@@ -152,7 +152,10 @@ Under the Messages area on the settings page you will see CAPTCHA Title text, th
 = Can I change the default CAPTCHA error message when a user either does not attempt the captcha or fails it? =
 Absolutely,  the last two fields on the settings page under Messages are Confident CAPTCHA Ignored and Incorrect Guess.   You can set the messages appropriately for those two sections.
 
-=  What do I do if I have questions about Confident CAPTCHA that are not listed here?  =
+= What if I wanted to change to color of Confident CAPTCHA to match my site's theme?
+You can easily change the color of Confident CAPTCHA by selecting one of the several options for CAPTCHA Color on the settings page.  This way Confident CAPTCHA will look great regardless of where you place it.
+
+= What do I do if I have questions about Confident CAPTCHA that are not listed here?  =
 You can contact our Support department at www.confidenttechnologies.com/contact and they would be more than happy to assist you with CAPTCHA related issues.
 
 
