@@ -1,7 +1,7 @@
 === Confident CAPTCHA ===
 Contributors: ConfidentTechnologies
 Version: 2.5.3
-Tags: captcha, captcha Security, captcha plugin, picture captcha, image captcha, Confident captcha, Simple captcha, kaptcha, kapcha, plugin, registration captcha, images captcha, anti-spam, anti-bot, security, capcha, catcha, captha, reCAPTCHA, login, lost password, registration, spam, comments, forgot password, advertising, advertisement, advertising plugin, monetize, monetization
+Tags: captcha, captcha plugin, picture captcha, image captcha, Confident captcha, anti-spam, anti-bot, login, registration, spam, comments, advertising
 
 Requires at least: 3.0
 Tested up to: 3.6.1
