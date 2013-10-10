@@ -9,7 +9,7 @@ Stable tag: 2.5.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Confident CAPTCHA&#8482; is a clickable, picture CAPTCHA that stops spam and malicious bots, while remaining a very easy CAPTCHA for people to solve.
+Confident CAPTCHA&#8482; is a clickable, picture CAPTCHA that stops spam and malicious bots, while remaining a very easy CAPTCHA for humans to solve.
 
 == Description ==
 Confident CAPTCHA&#8482; is a clickable, picture CAPTCHA that stops spam and malicious bots, while remaining a very easy CAPTCHA for people to solve. All your website visitors have to do is click a few specific pictures on the CAPTCHA to prove they are human and not a bot. Confident CAPTCHA takes just a few seconds to solve. Use Confident CAPTCHA to stop spam and bots on comment forms, logins, registration forms and password resets.
