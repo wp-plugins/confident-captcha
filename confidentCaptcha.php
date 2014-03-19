@@ -25,10 +25,10 @@ if (!class_exists('confidentCaptcha')) {
                 else
                     add_action('register_form', array(&$this, 'show_confidentCaptcha_in_registration'));
             }
-			if($this->options['show_in_lost_password'])
-			    add_action('lostpassword_form', array(&$this, 'show_confidentCaptcha_in_registration'));
-			if($this->options['show_in_login_page'])
-			    add_action('login_form', array(&$this, 'show_confidentCaptcha_in_registration'));
+            if($this->options['show_in_lost_password'])
+                add_action('lostpassword_form', array(&$this, 'show_confidentCaptcha_in_registration'));
+            if($this->options['show_in_login_page'])
+                add_action('login_form', array(&$this, 'show_confidentCaptcha_in_registration'));
             if ($this->options['show_in_comments']) {
                 add_action('comment_form', array(&$this, 'show_confidentCaptcha_in_comments'));
                 add_action('wp_head', array(&$this, 'saved_comment'), 0);
@@ -43,6 +43,48 @@ if (!class_exists('confidentCaptcha')) {
             add_filter('query_vars', array(&$this,'callback_rewrite_filter'));
             add_action('parse_request', array(&$this,'callback_rewrite_parse_request'));
             add_action('init', 'session_start');
+            if ($this->options['show_in_cf7']) {
+                if (function_exists('wpcf7_add_shortcode') ) {  // Add CC to CF7
+                    wpcf7_add_shortcode('confidentCaptcha', 'confidentCaptcha_shortcode_cf7', true);
+                    add_filter('wpcf7_validate_confidentCaptcha', array(&$this, 'confidentCaptcha_check'),10,2);
+                }
+            }
+        }
+        function confidentCaptcha_shortcode_cf7($atts = array() ) {
+            $response = '<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>';
+            if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == "on")
+                $use_ssl = true;
+            else
+                $use_ssl = false;
+            $escaped_error = htmlentities($_GET['rerror'], ENT_QUOTES);
+            $response .= $this->get_confidentCaptcha_html($escaped_error, $use_ssl);
+            return $response;
+        }
+        function confidentCaptcha_check($errors, $tag = NULL) {
+            if (empty($_POST['confidentcaptcha_code']) || $_POST['confidentcaptcha_code'] == '') {
+                $errors->add('blank_captcha', $this->options['no_response_error']);
+                return $errors;
+            }
+            $validationData = array (
+                'api_username'=>$this->options['api_username'],
+                'api_password'=>$this->options['api_password'],
+                'customer_id'=>$this->options['customer_id'],
+                'site_id'=>$this->options['site_id'],
+                'library_version'=>'20130514_WordPress_2.5',
+                'click_coordinates'=>$_POST['confidentcaptcha_click_coordinates'],
+                'code'=>$_POST['confidentcaptcha_code'],
+                'confidentCaptchaID'=>$_POST['confidentcaptcha_captcha_id']
+            );
+            //$response = confidentCaptcha_check_answer($validationData);
+            $client = $this->getClient();
+            $response = $client->checkCaptcha($_POST);
+            if (!$response->wasCaptchaSolved())
+               if(!empty($tag)) {
+                  $errors['valid'] = false;
+                  $errors['reason']['your-message'] = $this->options['incorrect_response_error'];
+               } else
+                   $errors->add('captcha_wrong', $this->options['incorrect_response_error']);
+            return $errors;
         }
         function callback_rewrite_parse_request(&$wp){
             if ( array_key_exists( 'confident_callback', $wp->query_vars ) )
@@ -124,7 +166,6 @@ if (!class_exists('confidentCaptcha')) {
                $option_defaults['api_password'] = '';
                $option_defaults['show_in_comments'] = 1;
                $option_defaults['show_in_registration'] = 1;
-			   $option_defaults['confidentCaptcha_on_cf7'] = 1;
 			   $option_defaults['show_in_lost_password'] = 1;
 			   $option_defaults['show_in_login_page'] = 0;
                $option_defaults['captcha_description'] = '';
@@ -170,30 +211,8 @@ if (!class_exists('confidentCaptcha')) {
 		function register_js() {
 		    wp_enqueue_script('jquery');
         }
-        function confidentCaptcha_tag_generator() {
-		   wpcf7_add_tag_generator('confidentCaptcha', 'Confident CAPTCHA', 'confidentCaptcha-tag-pane', 'confidentCaptcha_tag_pane');
-		}
-		function confidentCaptcha_tag_pane() {
-		   ?>
-		   <div id="confidentCaptcha-tag-pane" class="hidden">
-		      <form action="">
-			     <table>
-				    <tr>
-					   <td><?php _e('Name', 'confidentCaptcha'); ?><br /><input type="text" name="name" class="tg-name oneline" /></td>
-					   <td></td>
-					</tr>
-			     </table>
-			  <div class="tg-tag">
-			     <?php _e('Copy this code and paste it into the form on the left.', 'confidentCaptcha' ); ?>
-				 <br/>
-				 <input type="text" name="confidentCaptcha" class="tag" readonly="readonly" onfocus="this.select()" />
-			  </div>
-		      </form>
-		   </div>
-		   <?php
-		}
         function confidentCaptcha_enabled() {
-            return ($this->options['show_in_comments'] || $this->options['show_in_registration'] || $this->options['show_in_login_page'] || $this->options['show_in_lost_password'] || $this->options['confidentCaptcha_on_cf7'] );
+            return ($this->options['show_in_comments'] || $this->options['show_in_registration'] || $this->options['show_in_login_page'] || $this->options['show_in_lost_password'] );
         }
         function keys_missing() {
             return (empty($this->options['site_id']) || empty($this->options['customer_id']) || empty($this->options['api_username']) || empty($this->options['api_password']));
@@ -227,7 +246,7 @@ if (!class_exists('confidentCaptcha')) {
             $captchaColors = array ('Pearl', 'Black', 'Tangerine','Pink','Purple', 'Orange', 'Yellow', 'Aqua', 'Green', 'Red','Brown','Blue','Maroon','Violet','Gray','Lime');
             $codeColors = array ('White', 'Red', 'Orange','Yellow','Green', 'Teal', 'Blue', 'Indigo', 'Violet', 'Gray');
             $noiseLvls = array ('.10', '.20', '.30', '.40', '.50', '.60', '.70', '.80', '.90');
-            $displayStyles = array ('lightbox', 'flyout','inline-below');
+            $displayStyles = array ('lightbox', 'flyout','inline-below','inline-right');
             $trueFalse = array('TRUE', 'FALSE');
             $failurePolicy = array('math', 'open', 'closed');
             $validated['minimum_bypass_level'] = $this->validate_dropdown($capabilities, 'minimum_bypass_level', $input['minimum_bypass_level']);
@@ -237,7 +256,6 @@ if (!class_exists('confidentCaptcha')) {
 			$validated['display_style'] = $this->validate_dropdown($displayStyles, 'display_style', $input['display_style']);
             $validated['comments_tab_index'] = $input['comments_tab_index'] ? $input["comments_tab_index"] : 5;
             $validated['show_in_registration'] = ($input['show_in_registration'] == 1 ? 1 : 0);
-			$validated['confidentCaptcha_on_cf7'] = ($input['confidentCaptcha_on_cf7'] == 1 ? 1 : 0);
             $validated['registration_tab_index'] = $input['registration_tab_index'] ? $input["registration_tab_index"] : 30;
 			$validated['width'] = $input['width'] ? $input["width"] : '3';
             $validated['height'] = $input['height'] ? $input["height"] : '3';
@@ -684,7 +702,8 @@ JS;
             $displayStyle = array (
                 __('lightbox', 'confidentCaptcha') => 'lightbox',
                 __('flyout', 'confidentCaptcha') => 'flyout',
-                __('inline', 'confidentCaptcha') => 'inline-below'
+                __('inline-below', 'confidentCaptcha') => 'inline-below',
+                __('inline-right', 'confidentCaptcha') => 'inline-right'
             );
             $this->build_dropdown('confidentCaptcha_options[display_style]', $displayStyle, $this->options['display_style']);
         }

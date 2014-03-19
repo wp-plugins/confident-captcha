@@ -88,6 +88,13 @@
             </td>
          </tr>
          <tr valign="top">
+            <th scope="row"><?php _e('Contact Form 7', 'confidentCaptcha'); ?></th>
+            <td>
+               <input type="checkbox" id ="confidentCaptcha_options[show_in_cf7]" name="confidentCaptcha_options[show_in_cf7]" value="1" <?php checked('1', $this->options['show_in_cf7']); ?> />
+               <label for="confidentCaptcha_options[show_in_cf7]"><?php _e('Enable for Contact Form 7', 'confidentCaptcha'); ?></label>
+            </td>
+         </tr>
+         <tr valign="top">
             <th scope="row"><?php _e('Lost Password', 'confidentCaptcha'); ?></th>
             <td>
                <input type="checkbox" id ="confidentCaptcha_options[show_in_lost_password]" name="confidentCaptcha_options[show_in_lost_password]" value="1" <?php checked('1', $this->options['show_in_lost_password']); ?> />
