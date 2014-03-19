@@ -1,11 +1,11 @@
 === Confident CAPTCHA ===
 Contributors: ConfidentTechnologies
-Version: 2.5.3
+Version: 2.5.4
 Tags: captcha, captcha plugin, picture captcha, image captcha, Confident captcha, anti-spam, anti-bot, login, registration, spam, comments, advertising
 
 Requires at least: 3.0
-Tested up to: 3.7777777.1
-Stable tag: 2.5.3
+Tested up to: 3.8.1
+Stable tag: 2.5.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -169,6 +169,11 @@ You can contact our Support department at www.confidenttechnologies.com/contact 
 5. Confident CAPTCHA - Video Advertising
 
 == Changelog ==
+= 2.5.4 =
+* Corrected compatible up to
+* fixed overflow cut off issue for login and lost password forms.
+* tested with Wordpress 3.8.1
+
 = 2.5.3 =
 * Added legacy support on Confident CAPTCHA for IE7 + IE5 quirks mode
 * Alternate inline CAPTCHA style for display with ads to the right or below the CAPTCHA 
@@ -184,6 +189,8 @@ You can contact our Support department at www.confidenttechnologies.com/contact 
 * Max tries, set the number of times a user can solve Confident CAPTCHA.
 
 == Upgrade Notice ==
+= 2.5.4 =
+  Now login and lostpassword forms will not cut off part of the CAPTCHA solution.  Tested with Wordpress 3.8.1
 = 2.5.3 =
  Added legacy support to Confident CAPTCHA for IE7, IE5 Quirks document mode, additional inline CAPTCHA display style for sites with ads enabled.
 = 2.5.2 =
