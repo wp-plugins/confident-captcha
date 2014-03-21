@@ -15,6 +15,8 @@ if (!class_exists('confidentCaptcha')) {
             $this->register_filters();
         }
         function register_actions() {
+            add_action('init','confidentcaptcha_register_style');
+            add_action('login_enqueue_scripts', 'confidentcaptcha_login_styles');            
             add_action('wp_head', array(&$this, 'register_stylesheets')); 
             add_action('admin_head', array(&$this, 'register_stylesheets'));
             register_activation_hook(WPPlugin::path_to_plugin_directory() . '/wp-confidentCaptcha.php', array(&$this, 'register_default_options')); 
@@ -43,22 +45,15 @@ if (!class_exists('confidentCaptcha')) {
             add_filter('query_vars', array(&$this,'callback_rewrite_filter'));
             add_action('parse_request', array(&$this,'callback_rewrite_parse_request'));
             add_action('init', 'session_start');
-            if ($this->options['show_in_cf7']) {
-                if (function_exists('wpcf7_add_shortcode') ) {  // Add CC to CF7
-                    wpcf7_add_shortcode('confidentCaptcha', 'confidentCaptcha_shortcode_cf7', true);
-                    add_filter('wpcf7_validate_confidentCaptcha', array(&$this, 'confidentCaptcha_check'),10,2);
-                }
-            }
         }
-        function confidentCaptcha_shortcode_cf7($atts = array() ) {
-            $response = '<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>';
-            if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == "on")
-                $use_ssl = true;
-            else
-                $use_ssl = false;
-            $escaped_error = htmlentities($_GET['rerror'], ENT_QUOTES);
-            $response .= $this->get_confidentCaptcha_html($escaped_error, $use_ssl);
-            return $response;
+        function confidentcaptcha_register_style() {
+          wp_register_style('confidentCaptchaStylesheet',plugins_url('confidentCaptcha.css', __FILE__));
+        }
+        function confidentcaptcha_login_styles() {
+          $action = (isset( $_GET['action'] )) ? $_GET['action'] : '';
+          if($action == 'lostpassword' || $action== 'register') {
+            ?><style type="text/css">#loginform { overflow: visible !important; } #lostpasswordform { overflow: visible !important; }</style><?php
+          }
         }
         function confidentCaptcha_check($errors, $tag = NULL) {
             if (empty($_POST['confidentcaptcha_code']) || $_POST['confidentcaptcha_code'] == '') {
@@ -208,8 +203,8 @@ if (!class_exists('confidentCaptcha')) {
             $path = WPPlugin::url_to_plugin_directory() . '/confidentCaptcha.css';
             echo '<link rel="stylesheet" type="text/css" href="' . $path . '" />';
         }
-		function register_js() {
-		    wp_enqueue_script('jquery');
+	function register_js() {
+	    wp_enqueue_script('jquery');
         }
         function confidentCaptcha_enabled() {
             return ($this->options['show_in_comments'] || $this->options['show_in_registration'] || $this->options['show_in_login_page'] || $this->options['show_in_lost_password'] );
@@ -272,6 +267,7 @@ if (!class_exists('confidentCaptcha')) {
             return $validated;
         }
         function show_confidentCaptcha_in_registration($errors) {
+            wp_enqueue_style('confidentCaptchaStylesheet');
 		    echo '<script src="http://code.jquery.com/jquery-latest.min.js"
         type="text/javascript"></script>';
             if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == "on")
@@ -354,6 +350,7 @@ if (!class_exists('confidentCaptcha')) {
         }
 
         function show_confidentCaptcha_in_comments() {
+            wp_enqueue_style('confidentCaptchaStylesheet');
             global $user_ID, $email;
 		    echo '<script src="http://code.jquery.com/jquery-latest.min.js"
         type="text/javascript"></script>';
