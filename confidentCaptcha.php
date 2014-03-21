@@ -45,22 +45,6 @@ if (!class_exists('confidentCaptcha')) {
             add_filter('query_vars', array(&$this,'callback_rewrite_filter'));
             add_action('parse_request', array(&$this,'callback_rewrite_parse_request'));
             add_action('init', 'session_start');
-            if ($this->options['show_in_cf7']) {
-                if (function_exists('wpcf7_add_shortcode') ) {  // Add CC to CF7
-                    wpcf7_add_shortcode('confidentCaptcha', 'confidentCaptcha_shortcode_cf7', true);
-                    add_filter('wpcf7_validate_confidentCaptcha', array(&$this, 'confidentCaptcha_check'),10,2);
-                }
-            }
-        }
-        function confidentCaptcha_shortcode_cf7($atts = array() ) {
-            $response = '<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>';
-            if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == "on")
-                $use_ssl = true;
-            else
-                $use_ssl = false;
-            $escaped_error = htmlentities($_GET['rerror'], ENT_QUOTES);
-            $response .= $this->get_confidentCaptcha_html($escaped_error, $use_ssl);
-            return $response;
         }
         function confidentcaptcha_register_style() {
           wp_register_style('confidentCaptchaStylesheet',plugins_url('confidentCaptcha.css', __FILE__));
