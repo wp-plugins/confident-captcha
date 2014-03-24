@@ -19,6 +19,7 @@ if (!class_exists('confidentCaptcha')) {
             add_action('admin_head', array(&$this, 'register_stylesheets'));
             register_activation_hook(WPPlugin::path_to_plugin_directory() . '/wp-confidentCaptcha.php', array(&$this, 'register_default_options')); 
             add_action('admin_init', array(&$this, 'register_settings_group'));
+            add_action('wp_enqueue_scripts',array(&$this, 'confidentStyle'));
             if ($this->options['show_in_registration']) {
                 if ($this->is_multi_blog())
                     add_action('signup_extra_fields', array(&$this, 'show_confidentCaptcha_in_registration'));
@@ -43,6 +44,10 @@ if (!class_exists('confidentCaptcha')) {
             add_filter('query_vars', array(&$this,'callback_rewrite_filter'));
             add_action('parse_request', array(&$this,'callback_rewrite_parse_request'));
             add_action('init', 'session_start');
+        }
+        function confidentStyle() {
+          wp_register_style('confident-style',plugins_url('confidentCaptcha.css',__FILE__));
+          wp_enqueue_style('confident-style');
         }
         function confidentCaptcha_check($errors, $tag = NULL) {
             if (empty($_POST['confidentcaptcha_code']) || $_POST['confidentcaptcha_code'] == '') {
@@ -150,24 +155,24 @@ if (!class_exists('confidentCaptcha')) {
                $option_defaults['api_password'] = '';
                $option_defaults['show_in_comments'] = 1;
                $option_defaults['show_in_registration'] = 1;
-			   $option_defaults['show_in_lost_password'] = 1;
-			   $option_defaults['show_in_login_page'] = 0;
+	       $option_defaults['show_in_lost_password'] = 1;
+	       $option_defaults['show_in_login_page'] = 0;
                $option_defaults['captcha_description'] = '';
                $option_defaults['bypass_for_registered_users'] = 1;
                $option_defaults['minimum_bypass_level'] = 'read';
                $option_defaults['captcha_color'] = 'Pearl';
-			   $option_defaults['image_code_color'] = 'White';
-			   $option_defaults['noise_level'] = '.10';
-			   $option_defaults['display_style'] = 'flyout';
+	       $option_defaults['image_code_color'] = 'White';
+	       $option_defaults['noise_level'] = '.10';
+	       $option_defaults['display_style'] = 'flyout';
                $option_defaults['confidentCaptcha_language'] = 'en';
                $option_defaults['xhtml_compliance'] = 0;
                $option_defaults['comments_tab_index'] = 5;
                $option_defaults['registration_tab_index'] = 30;
-			   $option_defaults['width'] = '3';
-			   $option_defaults['height'] = '2';
-			   $option_defaults['captcha_length'] = '3';
-			   $option_defaults['captcha_logo'] = '';
-			   $option_defaults['captcha_billboard'] = '';
+	       $option_defaults['width'] = '3';
+	       $option_defaults['height'] = '2';
+	       $option_defaults['captcha_length'] = '3';
+	       $option_defaults['captcha_logo'] = '';
+	       $option_defaults['captcha_billboard'] = '';
                $option_defaults['show_letters'] = 'FALSE';
                $option_defaults['ajax_verify'] = 'FALSE';
                $option_defaults['max_tries'] = '3';
@@ -256,7 +261,8 @@ if (!class_exists('confidentCaptcha')) {
             return $validated;
         }
         function show_confidentCaptcha_in_registration($errors) {
-            wp_enqueue_style('confidentCaptchaStylesheet');
+            $this->register_stylesheets();
+            wp_enqueue_style('confident-style');
 		    echo '<script src="http://code.jquery.com/jquery-latest.min.js"
         type="text/javascript"></script>';
             if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == "on")
