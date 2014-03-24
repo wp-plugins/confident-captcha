@@ -15,8 +15,6 @@ if (!class_exists('confidentCaptcha')) {
             $this->register_filters();
         }
         function register_actions() {
-            add_action('init','confidentcaptcha_register_style');
-            add_action('login_enqueue_scripts', 'confidentcaptcha_login_styles');            
             add_action('wp_head', array(&$this, 'register_stylesheets')); 
             add_action('admin_head', array(&$this, 'register_stylesheets'));
             register_activation_hook(WPPlugin::path_to_plugin_directory() . '/wp-confidentCaptcha.php', array(&$this, 'register_default_options')); 
@@ -45,15 +43,6 @@ if (!class_exists('confidentCaptcha')) {
             add_filter('query_vars', array(&$this,'callback_rewrite_filter'));
             add_action('parse_request', array(&$this,'callback_rewrite_parse_request'));
             add_action('init', 'session_start');
-        }
-        function confidentcaptcha_register_style() {
-          wp_register_style('confidentCaptchaStylesheet',plugins_url('confidentCaptcha.css', __FILE__));
-        }
-        function confidentcaptcha_login_styles() {
-          $action = (isset( $_GET['action'] )) ? $_GET['action'] : '';
-          if($action == 'lostpassword' || $action== 'register') {
-            ?><style type="text/css">#loginform { overflow: visible !important; } #lostpasswordform { overflow: visible !important; }</style><?php
-          }
         }
         function confidentCaptcha_check($errors, $tag = NULL) {
             if (empty($_POST['confidentcaptcha_code']) || $_POST['confidentcaptcha_code'] == '') {
