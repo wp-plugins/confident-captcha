@@ -128,7 +128,7 @@ if (!class_exists('confidentCaptcha')) {
                }
                $option_defaults['captcha_color'] = 'Pearl';
 			   $option_defaults['image_code_color'] = $old_options['cc_code_color'];
-			   $option_defaults['noise_level'] = $old_options['cc_noise_level'];
+			   $option_defaults['audio_noise_level'] = $old_options['cc_audio_noise_level'];
 			   $option_defaults['display_style'] = $old_options['cc_display_style'];
                $option_defaults['confidentCaptcha_language'] = $old_options['cc_lang'];
                $option_defaults['xhtml_compliance'] = $old_options['cc_xhtml'];
@@ -162,7 +162,7 @@ if (!class_exists('confidentCaptcha')) {
                $option_defaults['minimum_bypass_level'] = 'read';
                $option_defaults['captcha_color'] = 'Pearl';
 	       $option_defaults['image_code_color'] = 'White';
-	       $option_defaults['noise_level'] = '.10';
+	       $option_defaults['audio_noise_level'] = '.10';
 	       $option_defaults['display_style'] = 'flyout';
                $option_defaults['confidentCaptcha_language'] = 'en';
                $option_defaults['xhtml_compliance'] = 0;
@@ -241,7 +241,7 @@ if (!class_exists('confidentCaptcha')) {
             $validated['minimum_bypass_level'] = $this->validate_dropdown($capabilities, 'minimum_bypass_level', $input['minimum_bypass_level']);
             $validated['captcha_color'] = $this->validate_dropdown($captchaColors, 'captcha_color', $input['captcha_color']);
             $validated['image_code_color'] = $this->validate_dropdown($codeColors, 'image_code_color', $input['image_code_color']);
-            $validated['noise_level'] = $this->validate_dropdown($noiseLvls, 'noise_level', $input['noise_level']);
+            $validated['audio_noise_level'] = $this->validate_dropdown($noiseLvls, 'audio_noise_level', $input['audio_noise_level']);
 			$validated['display_style'] = $this->validate_dropdown($displayStyles, 'display_style', $input['display_style']);
             $validated['comments_tab_index'] = $input['comments_tab_index'] ? $input["comments_tab_index"] : 5;
             $validated['show_in_registration'] = ($input['show_in_registration'] == 1 ? 1 : 0);
@@ -688,7 +688,7 @@ JS;
                 __('80%', 'confidentCaptcha') => '.80',
                 __('90%', 'confidentCaptcha') => '.90'
             );
-            $this->build_dropdown('confidentCaptcha_options[noise_level]', $noiseLevel, $this->options['noise_level']);
+            $this->build_dropdown('confidentCaptcha_options[audio_noise_level]', $noiseLevel, $this->options['audio_noise_level']);
         }
         function displayStyle_dropdown() {
             $displayStyle = array (
@@ -722,7 +722,7 @@ JS;
             $confident_captcha_properties->setProperty('max_tries', $this->options["max_tries"]);
             $confident_captcha_properties->setProperty('callback_url', $callbackUrlPath . "?confident_callback=1");
             $confident_captcha_properties->setProperty('failure_policy_math', $this->options["failure_policy_math"]);
-            $confident_captcha_properties->setProperty('noise_level', $this->options["noise_level"]);
+            $confident_captcha_properties->setProperty('audio_noise_level', $this->options["audio_noise_level"]);
             $confident_captcha_properties->setProperty('show_letters', $this->options["show_letters"]);
             $client->setCaptchaProperties($confident_captcha_properties);
 

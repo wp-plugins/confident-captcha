@@ -85,8 +85,8 @@ class ConfidentCaptchaProperties
         if(!isset($this->properties['failure_policy_math'])){
             $this->properties['failure_policy_math'] = 'math';	
         }
-        if(!isset($this->properties['noise_level'])){
-            $this->properties['noise_level'] = '0.2';
+        if(!isset($this->properties['audio_noise_level'])){
+            $this->properties['audio_noise_level'] = '0.2';
         }
         if(!isset($this->properties['ajax_verify'])){
             $this->properties['ajax_verify'] =  'FALSE';
@@ -200,13 +200,13 @@ class ConfidentCaptchaProperties
 
     public function setNoiseLevel($noise_level)
     {
-        $this->properties['noise_level'] = $noise_level;
+        $this->properties['audio_noise_level'] = $noise_level;
     }
 
     public function getNoiseLevel()
     {
-        if(isset($this->properties['noise_level'])){
-            return $this->properties['noise_level'];    
+        if(isset($this->properties['audio_noise_level'])){
+            return $this->properties['audio_noise_level'];    
         }
         return null;
         
