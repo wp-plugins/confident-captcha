@@ -299,7 +299,7 @@ class ConfidentCaptchaClient
             'callback_url'=> '(default: empty)',
             'billboard'=> '(default: empty)',
             'logo'=> '(default: empty)',
-            'noise_level' => '(default: 0.2)'
+            'audio_noise_level' => '(default: 0.2)'
         );
 
         foreach ($currentKnownProperties as $propertyName => $expected) {
@@ -420,7 +420,7 @@ class ConfidentCaptchaClient
                             $propertyName = $propertyName . "<span style=\"color:red\"> (this needs to be a url)</span>";
                         }
                         break;
-                    case "noise_level":
+                    case "audio_noise_level":
                         if(is_numeric($property) && bccomp($property, "0.0", 1) > 0 && bccomp($property, "1.0", 1) < 0){
                             $propertyOk = 'Yes';
                         }
@@ -1185,7 +1185,7 @@ CAPTCHA;
         $request = $request . $this->encodeAndConcatenate("display_style", $this->captchaProperties->getProperty("display_style")) . "&";
 
         //Noise Level
-        $request = $request . $this->encodeAndConcatenate("noise_level", $this->captchaProperties->getProperty("noise_level")) . "&";
+        $request = $request . $this->encodeAndConcatenate("audio_noise_level", $this->captchaProperties->getProperty("audio_noise_level")) . "&";
 
         //Failure Policy
         $request = $request . $this->encodeAndConcatenate("failure_policy_math", $this->captchaProperties->getProperty("failure_policy_math")) . "&";

@@ -19,16 +19,17 @@ if (!class_exists('confidentCaptcha')) {
             add_action('admin_head', array(&$this, 'register_stylesheets'));
             register_activation_hook(WPPlugin::path_to_plugin_directory() . '/wp-confidentCaptcha.php', array(&$this, 'register_default_options')); 
             add_action('admin_init', array(&$this, 'register_settings_group'));
+            add_action('wp_enqueue_scripts',array(&$this, 'confidentStyle'));
             if ($this->options['show_in_registration']) {
                 if ($this->is_multi_blog())
                     add_action('signup_extra_fields', array(&$this, 'show_confidentCaptcha_in_registration'));
                 else
                     add_action('register_form', array(&$this, 'show_confidentCaptcha_in_registration'));
             }
-			if($this->options['show_in_lost_password'])
-			    add_action('lostpassword_form', array(&$this, 'show_confidentCaptcha_in_registration'));
-			if($this->options['show_in_login_page'])
-			    add_action('login_form', array(&$this, 'show_confidentCaptcha_in_registration'));
+            if($this->options['show_in_lost_password'])
+                add_action('lostpassword_form', array(&$this, 'show_confidentCaptcha_in_registration'));
+            if($this->options['show_in_login_page'])
+                add_action('login_form', array(&$this, 'show_confidentCaptcha_in_registration'));
             if ($this->options['show_in_comments']) {
                 add_action('comment_form', array(&$this, 'show_confidentCaptcha_in_comments'));
                 add_action('wp_head', array(&$this, 'saved_comment'), 0);
@@ -43,6 +44,36 @@ if (!class_exists('confidentCaptcha')) {
             add_filter('query_vars', array(&$this,'callback_rewrite_filter'));
             add_action('parse_request', array(&$this,'callback_rewrite_parse_request'));
             add_action('init', 'session_start');
+        }
+        function confidentStyle() {
+          wp_register_style('confident-style',plugins_url('confidentCaptcha.css',__FILE__));
+          wp_enqueue_style('confident-style');
+        }
+        function confidentCaptcha_check($errors, $tag = NULL) {
+            if (empty($_POST['confidentcaptcha_code']) || $_POST['confidentcaptcha_code'] == '') {
+                $errors->add('blank_captcha', $this->options['no_response_error']);
+                return $errors;
+            }
+            $validationData = array (
+                'api_username'=>$this->options['api_username'],
+                'api_password'=>$this->options['api_password'],
+                'customer_id'=>$this->options['customer_id'],
+                'site_id'=>$this->options['site_id'],
+                'library_version'=>'20130514_WordPress_2.5',
+                'click_coordinates'=>$_POST['confidentcaptcha_click_coordinates'],
+                'code'=>$_POST['confidentcaptcha_code'],
+                'confidentCaptchaID'=>$_POST['confidentcaptcha_captcha_id']
+            );
+            //$response = confidentCaptcha_check_answer($validationData);
+            $client = $this->getClient();
+            $response = $client->checkCaptcha($_POST);
+            if (!$response->wasCaptchaSolved())
+               if(!empty($tag)) {
+                  $errors['valid'] = false;
+                  $errors['reason']['your-message'] = $this->options['incorrect_response_error'];
+               } else
+                   $errors->add('captcha_wrong', $this->options['incorrect_response_error']);
+            return $errors;
         }
         function callback_rewrite_parse_request(&$wp){
             if ( array_key_exists( 'confident_callback', $wp->query_vars ) )
@@ -97,7 +128,7 @@ if (!class_exists('confidentCaptcha')) {
                }
                $option_defaults['captcha_color'] = 'Pearl';
 			   $option_defaults['image_code_color'] = $old_options['cc_code_color'];
-			   $option_defaults['noise_level'] = $old_options['cc_noise_level'];
+			   $option_defaults['audio_noise_level'] = $old_options['cc_audio_noise_level'];
 			   $option_defaults['display_style'] = $old_options['cc_display_style'];
                $option_defaults['confidentCaptcha_language'] = $old_options['cc_lang'];
                $option_defaults['xhtml_compliance'] = $old_options['cc_xhtml'];
@@ -124,25 +155,24 @@ if (!class_exists('confidentCaptcha')) {
                $option_defaults['api_password'] = '';
                $option_defaults['show_in_comments'] = 1;
                $option_defaults['show_in_registration'] = 1;
-			   $option_defaults['confidentCaptcha_on_cf7'] = 1;
-			   $option_defaults['show_in_lost_password'] = 1;
-			   $option_defaults['show_in_login_page'] = 0;
+	       $option_defaults['show_in_lost_password'] = 1;
+	       $option_defaults['show_in_login_page'] = 0;
                $option_defaults['captcha_description'] = '';
                $option_defaults['bypass_for_registered_users'] = 1;
                $option_defaults['minimum_bypass_level'] = 'read';
                $option_defaults['captcha_color'] = 'Pearl';
-			   $option_defaults['image_code_color'] = 'White';
-			   $option_defaults['noise_level'] = '.10';
-			   $option_defaults['display_style'] = 'flyout';
+	       $option_defaults['image_code_color'] = 'White';
+	       $option_defaults['audio_noise_level'] = '.10';
+	       $option_defaults['display_style'] = 'flyout';
                $option_defaults['confidentCaptcha_language'] = 'en';
                $option_defaults['xhtml_compliance'] = 0;
                $option_defaults['comments_tab_index'] = 5;
                $option_defaults['registration_tab_index'] = 30;
-			   $option_defaults['width'] = '3';
-			   $option_defaults['height'] = '2';
-			   $option_defaults['captcha_length'] = '3';
-			   $option_defaults['captcha_logo'] = '';
-			   $option_defaults['captcha_billboard'] = '';
+	       $option_defaults['width'] = '3';
+	       $option_defaults['height'] = '2';
+	       $option_defaults['captcha_length'] = '3';
+	       $option_defaults['captcha_logo'] = '';
+	       $option_defaults['captcha_billboard'] = '';
                $option_defaults['show_letters'] = 'FALSE';
                $option_defaults['ajax_verify'] = 'FALSE';
                $option_defaults['max_tries'] = '3';
@@ -167,33 +197,11 @@ if (!class_exists('confidentCaptcha')) {
             $path = WPPlugin::url_to_plugin_directory() . '/confidentCaptcha.css';
             echo '<link rel="stylesheet" type="text/css" href="' . $path . '" />';
         }
-		function register_js() {
-		    wp_enqueue_script('jquery');
+	function register_js() {
+	    wp_enqueue_script('jquery');
         }
-        function confidentCaptcha_tag_generator() {
-		   wpcf7_add_tag_generator('confidentCaptcha', 'Confident CAPTCHA', 'confidentCaptcha-tag-pane', 'confidentCaptcha_tag_pane');
-		}
-		function confidentCaptcha_tag_pane() {
-		   ?>
-		   <div id="confidentCaptcha-tag-pane" class="hidden">
-		      <form action="">
-			     <table>
-				    <tr>
-					   <td><?php _e('Name', 'confidentCaptcha'); ?><br /><input type="text" name="name" class="tg-name oneline" /></td>
-					   <td></td>
-					</tr>
-			     </table>
-			  <div class="tg-tag">
-			     <?php _e('Copy this code and paste it into the form on the left.', 'confidentCaptcha' ); ?>
-				 <br/>
-				 <input type="text" name="confidentCaptcha" class="tag" readonly="readonly" onfocus="this.select()" />
-			  </div>
-		      </form>
-		   </div>
-		   <?php
-		}
         function confidentCaptcha_enabled() {
-            return ($this->options['show_in_comments'] || $this->options['show_in_registration'] || $this->options['show_in_login_page'] || $this->options['show_in_lost_password'] || $this->options['confidentCaptcha_on_cf7'] );
+            return ($this->options['show_in_comments'] || $this->options['show_in_registration'] || $this->options['show_in_login_page'] || $this->options['show_in_lost_password'] );
         }
         function keys_missing() {
             return (empty($this->options['site_id']) || empty($this->options['customer_id']) || empty($this->options['api_username']) || empty($this->options['api_password']));
@@ -227,17 +235,16 @@ if (!class_exists('confidentCaptcha')) {
             $captchaColors = array ('Pearl', 'Black', 'Tangerine','Pink','Purple', 'Orange', 'Yellow', 'Aqua', 'Green', 'Red','Brown','Blue','Maroon','Violet','Gray','Lime');
             $codeColors = array ('White', 'Red', 'Orange','Yellow','Green', 'Teal', 'Blue', 'Indigo', 'Violet', 'Gray');
             $noiseLvls = array ('.10', '.20', '.30', '.40', '.50', '.60', '.70', '.80', '.90');
-            $displayStyles = array ('lightbox', 'flyout','inline-below');
+            $displayStyles = array ('lightbox', 'flyout','inline-below','inline-right');
             $trueFalse = array('TRUE', 'FALSE');
             $failurePolicy = array('math', 'open', 'closed');
             $validated['minimum_bypass_level'] = $this->validate_dropdown($capabilities, 'minimum_bypass_level', $input['minimum_bypass_level']);
             $validated['captcha_color'] = $this->validate_dropdown($captchaColors, 'captcha_color', $input['captcha_color']);
             $validated['image_code_color'] = $this->validate_dropdown($codeColors, 'image_code_color', $input['image_code_color']);
-            $validated['noise_level'] = $this->validate_dropdown($noiseLvls, 'noise_level', $input['noise_level']);
+            $validated['audio_noise_level'] = $this->validate_dropdown($noiseLvls, 'audio_noise_level', $input['audio_noise_level']);
 			$validated['display_style'] = $this->validate_dropdown($displayStyles, 'display_style', $input['display_style']);
             $validated['comments_tab_index'] = $input['comments_tab_index'] ? $input["comments_tab_index"] : 5;
             $validated['show_in_registration'] = ($input['show_in_registration'] == 1 ? 1 : 0);
-			$validated['confidentCaptcha_on_cf7'] = ($input['confidentCaptcha_on_cf7'] == 1 ? 1 : 0);
             $validated['registration_tab_index'] = $input['registration_tab_index'] ? $input["registration_tab_index"] : 30;
 			$validated['width'] = $input['width'] ? $input["width"] : '3';
             $validated['height'] = $input['height'] ? $input["height"] : '3';
@@ -254,6 +261,8 @@ if (!class_exists('confidentCaptcha')) {
             return $validated;
         }
         function show_confidentCaptcha_in_registration($errors) {
+            $this->register_stylesheets();
+            wp_enqueue_style('confident-style');
 		    echo '<script src="http://code.jquery.com/jquery-latest.min.js"
         type="text/javascript"></script>';
             if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == "on")
@@ -336,6 +345,7 @@ if (!class_exists('confidentCaptcha')) {
         }
 
         function show_confidentCaptcha_in_comments() {
+            wp_enqueue_style('confidentCaptchaStylesheet');
             global $user_ID, $email;
 		    echo '<script src="http://code.jquery.com/jquery-latest.min.js"
         type="text/javascript"></script>';
@@ -678,13 +688,14 @@ JS;
                 __('80%', 'confidentCaptcha') => '.80',
                 __('90%', 'confidentCaptcha') => '.90'
             );
-            $this->build_dropdown('confidentCaptcha_options[noise_level]', $noiseLevel, $this->options['noise_level']);
+            $this->build_dropdown('confidentCaptcha_options[audio_noise_level]', $noiseLevel, $this->options['audio_noise_level']);
         }
         function displayStyle_dropdown() {
             $displayStyle = array (
                 __('lightbox', 'confidentCaptcha') => 'lightbox',
                 __('flyout', 'confidentCaptcha') => 'flyout',
-                __('inline', 'confidentCaptcha') => 'inline-below'
+                __('inline-below', 'confidentCaptcha') => 'inline-below',
+                __('inline-right', 'confidentCaptcha') => 'inline-right'
             );
             $this->build_dropdown('confidentCaptcha_options[display_style]', $displayStyle, $this->options['display_style']);
         }
@@ -711,7 +722,7 @@ JS;
             $confident_captcha_properties->setProperty('max_tries', $this->options["max_tries"]);
             $confident_captcha_properties->setProperty('callback_url', $callbackUrlPath . "?confident_callback=1");
             $confident_captcha_properties->setProperty('failure_policy_math', $this->options["failure_policy_math"]);
-            $confident_captcha_properties->setProperty('noise_level', $this->options["noise_level"]);
+            $confident_captcha_properties->setProperty('audio_noise_level', $this->options["audio_noise_level"]);
             $confident_captcha_properties->setProperty('show_letters', $this->options["show_letters"]);
             $client->setCaptchaProperties($confident_captcha_properties);
 

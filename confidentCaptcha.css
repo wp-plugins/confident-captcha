@@ -1,3 +1,9 @@
+#lostpasswordform {
+  overflow: visible !important;
+}
+#loginform {
+  overflow: visible !important;
+}
 .confidentCaptcha-error {
    font-size: 1.2em;
    padding: 8px;
