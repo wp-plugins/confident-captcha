@@ -1,11 +1,11 @@
 === Confident CAPTCHA ===
 Contributors: ConfidentTechnologies
-Version: 2.5.6
+Version: 2.5.7
 Tags: captcha, captcha plugin, picture captcha, image captcha, Confident captcha, anti-spam, anti-bot, login, registration, spam, comments, advertising
 
 Requires at least: 3.0
-Tested up to: 4.0
-Stable tag: 2.5.6
+Tested up to: 4.1.1
+Stable tag: 2.5.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -169,6 +169,8 @@ You can contact our Support department at www.confidenttechnologies.com/contact 
 5. Confident CAPTCHA - Video Advertising
 
 == Changelog ==
+= 2.5.7 =
+* Compatibility with Wordpress 4.1.1
 = 2.5.6 =
 * Compatibility with Wordpress 4.0 'benny'
 = 2.5.5 =
@@ -193,6 +195,8 @@ You can contact our Support department at www.confidenttechnologies.com/contact 
 * Max tries, set the number of times a user can solve Confident CAPTCHA.
 
 == Upgrade Notice ==
+= 2.5.7 =
+  Compatibility update for Wordpress 4.1.1
 = 2.5.6 =
   Compatibility update for Wordpress 4.0 'benny'
 = 2.5.5 =
